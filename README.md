@@ -22,8 +22,11 @@ Repositorio para o jogo desenvolvido para a SCALE game Jam
   
 # Chips (vantagens passivas/ lore / 3)  
 **ALL1c3** - chip de livre-arbítrio  (começa sempre com este/ invulnerabilidade por um instante quando leva dano)  
+  
 **BRAVEh34rt** - chip de coragem (recompensa do 1º nível, dá uma capinha (bolha de proteção) e a capacidade de dar hover no ar acho que era giro aqui utilizarmos uma mecânica semelhante a climbing em breath of the wild em que tens uma barra de energia que se vai gastando e quando chegas ao fim para de dar houver imediatamente, ou seja tens aquela vantagem mas não a podes estar sempre a spammar)  
+  
 **FEARd0g** - chip do medo (recompensa do 2º nível, dá um big speed boost quando leva dano para poder fugir de onde está (tem de ter um cooldown e.g. a cada 10 segs), com um efeitozinho qq bonito para saber que estamos nesse estado)  
+  
 3º tbd  
   
 # Power-Ups (9-12)  
