@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,10 +35,11 @@ public abstract class Item
     // Note: Adicionar mais se necessário
     public enum ItemType
     {
-        Healing,
-        Damage,
-        Utility,
+        Healing = 0,
+        Damage = 1,
+        Utility = 2,
     }
+    public static int itemTypeLength = Enum.GetNames(typeof(Item.ItemType)).Length;
 }
 
 //A lista de items tem de estar atualizada 
