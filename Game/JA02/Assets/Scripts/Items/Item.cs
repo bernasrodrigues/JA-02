@@ -5,6 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public abstract class Item
 {
+    public Rarity rarity = Rarity.Common;
+    public ItemType type;
+
     public abstract string GetName();
     public virtual void Update(Player player, int stacks)
     {
@@ -18,6 +21,23 @@ public abstract class Item
     public virtual void OnUse(Player player){
 
     }
+
+    // Raridade to item para depois user no ItemGenerator
+    public enum Rarity
+    {
+        Common,
+        Rare,
+        Legendary,
+    }
+
+    // Tipo de item
+    // Note: Adicionar mais se necessário
+    public enum ItemType
+    {
+        Healing,
+        Damage,
+        Utility,
+    }
 }
 
 //A lista de items tem de estar atualizada 
@@ -30,6 +50,12 @@ public enum Items{
 
 public class HealingItem : Item 
 {
+    public HealingItem() 
+    {
+        rarity = Rarity.Common;
+        type = ItemType.Healing;
+    }
+
     public override string GetName(){
         return "Healing Item";
     }
@@ -42,6 +68,12 @@ public class HealingItem : Item
 
 public class FireDamageItem : Item
 {
+    public FireDamageItem()
+    {
+        rarity = Rarity.Common;
+        type = ItemType.Damage;
+    }
+
     public override string GetName()
     {
         return "Fire Weapon";
@@ -55,6 +87,12 @@ public class FireDamageItem : Item
 
 public class ActiveItem : Item
 {
+    public ActiveItem()
+    {
+        rarity = Rarity.Common;
+        type = ItemType.Damage;
+    }
+
     float itemCd = 1;
     public override string GetName()
     {
