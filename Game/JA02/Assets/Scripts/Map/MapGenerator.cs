@@ -7,6 +7,10 @@ using System.Linq;
 public class MapGenerator : MonoBehaviour
 {
     [SerializeField]
+    private int noiseIterationMultiplier;
+    [SerializeField]
+    private int levelMultiplier;
+    [SerializeField]
     private int tileSize;
     [SerializeField]
     private GameObject interiorTileObj;
@@ -40,16 +44,17 @@ public class MapGenerator : MonoBehaviour
 
     public void  Initialize(int level){
         
-        int lowestLimit = -2 * level;
-        int highestLimit = 2 * level;
+        int highestLimit = levelMultiplier * level;
+        int lowestLimit = -highestLimit;
         
         Tuple<int,int>[] startingSquareSpots = StartingSquareInit(lowestLimit, highestLimit);
         Tuple<int,int>[] chipSpots = InitializeChipSpots(highestLimit);
         Tuple<int, int>[] connectionSpots = ConnectMap(startingSquareSpots, chipSpots);
+        Tuple<int, int>[] noiseSpots = MakeNoisePositions(startingSquareSpots.Concat(chipSpots).Concat(connectionSpots).ToArray(), level);
 
-        mapPositions = startingSquareSpots.Concat(chipSpots).Concat(connectionSpots).ToArray();
+        mapPositions = startingSquareSpots.Concat(chipSpots).Concat(connectionSpots).Concat(noiseSpots).ToArray();
         MapSys.instance.SetMap(mapPositions);
-        MakeOutlineTiles(mapPositions);
+        MakeOutlineTiles(CalculateOutlineTiles(mapPositions));
     }
 
     public Tuple<int,int>[] StartingSquareInit(int lowestLimit, int highestLimit){
@@ -131,8 +136,7 @@ public class MapGenerator : MonoBehaviour
         return positionList;
     }
 
-    public void MakeOutlineTiles(Tuple<int, int>[] positions)
-    {
+    public Tuple<int,int>[] CalculateOutlineTiles(Tuple<int, int>[] positions){
         HashSet<Tuple<int, int>> uniqueOutlinePositions = new HashSet<Tuple<int, int>>();
 
         // Add original positions to the HashSet to exclude them from the outline
@@ -159,10 +163,59 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
+        uniqueOutlinePositions.ExceptWith(positions);
+        // Remove original positions from the HashSet to exclude them from the outline
+        return uniqueOutlinePositions.ToArray();
+    }
+
+    public Tuple<int, int>[] CalculateOutlineTilesWithoutDiagonals(Tuple<int, int>[] positions)
+    {
+        HashSet<Tuple<int, int>> uniqueOutlinePositions = new HashSet<Tuple<int, int>>();
+
+        foreach (var position in positions)
+        {
+            int x = position.Item1;
+            int y = position.Item2;
+
+            // Add outline positions (excluding diagonals)
+            var outlineOffsets = new[] { (0, 1), (0, -1), (1, 0), (-1, 0) };
+
+            foreach (var offset in outlineOffsets)
+            {
+                var outlinePosition = Tuple.Create(x + offset.Item1, y + offset.Item2);
+
+                // Add to the HashSet to ensure uniqueness
+                uniqueOutlinePositions.Add(outlinePosition);
+            }
+        }
+
         // Remove original positions from the HashSet to exclude them from the outline
         uniqueOutlinePositions.ExceptWith(positions);
-        
-        foreach(Tuple<int,int> position in uniqueOutlinePositions){
+
+        return uniqueOutlinePositions.ToArray();
+    }
+
+
+    public Tuple<int,int>[] MakeNoisePositions(Tuple<int,int>[] positions, int level){
+        Tuple<int,int>[] currentPositions;
+        Tuple<int,int>[] currentOutline;
+        Tuple<int,int>[] outlineToInstanceSubset;
+        List<Tuple<int,int>> addedPositions = new List<Tuple<int, int>>();
+        for(int i = 0; i<level*noiseIterationMultiplier; i++){
+            currentPositions = positions.Concat(addedPositions.ToArray()).ToArray();
+            currentOutline = CalculateOutlineTilesWithoutDiagonals(currentPositions);
+            outlineToInstanceSubset = GetRandomSubset(currentOutline, level*noiseIterationMultiplier);
+            foreach(Tuple<int,int> position in outlineToInstanceSubset){
+                InstantiateInteriorTileAt(position.Item1, position.Item2);
+                addedPositions.Add(position);
+            }
+            
+        }
+        return addedPositions.ToArray();
+    }
+    public void MakeOutlineTiles(Tuple<int, int>[] outlinePositions)
+    {
+        foreach(Tuple<int,int> position in outlinePositions){
             InstantiateExteriorTileAt(position.Item1, position.Item2);
         }
     }
@@ -175,6 +228,22 @@ public class MapGenerator : MonoBehaviour
     public void InstantiateExteriorTileAt(int xCoordinate, int yCoordinate){
         newGO = Instantiate(exteriorTileObj, transform);
         newGO.transform.position = new Vector3(xCoordinate*tileSize, 0, yCoordinate*tileSize);
+    }
+
+    public T[] GetRandomSubset<T>(T[] originalArray, int x)
+    {
+        if (originalArray == null || x <= 0 || x > originalArray.Length)
+        {
+            throw new ArgumentException("Invalid input parameters");
+        }
+
+        // Shuffle the original array
+        T[] shuffledArray = originalArray.OrderBy(_ => r.Next()).ToArray();
+
+        // Take the first x elements
+        T[] smallerArray = shuffledArray.Take(x).ToArray();
+
+        return smallerArray;
     }
     
 }

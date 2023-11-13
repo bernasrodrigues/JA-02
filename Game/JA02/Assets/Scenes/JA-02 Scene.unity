@@ -526,6 +526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d12da73f890424e9051ffacd0bc1e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noiseIterationMultiplier: 5
+  levelMultiplier: 2
   tileSize: 100
   interiorTileObj: {fileID: 680212831067799068, guid: 1d44f812d01c734468f8a0ca84815a9c,
     type: 3}
