@@ -13,6 +13,14 @@ public class StructureBuilder : MonoBehaviour
     GameObject newGO;
     [SerializeField]
     private int tileSize;
+    [SerializeField]
+    private float scenarioBuildingsPercentage;
+    [SerializeField]
+    private float itemOrConsumableBuildingsPercentage;
+    [SerializeField]
+    GameObject[] regularScenario;
+    [SerializeField]
+    GameObject[] scenarioWithItemOrConsumable;
 
     // Start is called before the first frame update
     void Start()
@@ -27,12 +35,34 @@ public class StructureBuilder : MonoBehaviour
     }
 
     public void Initialize(Tuple<int,int> chipPosition, Tuple<int,int> chipKeyPosition){
+        InitializeChipAndChipKey(chipPosition, chipKeyPosition);
+        InitializeScenario();
+        InitializeItemsOrConsumables();
+    }
+
+    public void InitializeScenario(){
+        float numberOfbuildings = scenarioBuildingsPercentage * MapSys.instance.GetAvaliableMapPositions().Length;
+        Tuple<int,int>[] scenarioPositions = RNGesus.instance.GetRandomSubset(MapSys.instance.GetAvaliableMapPositions(), (int)numberOfbuildings);
+        foreach(Tuple<int,int> sPosition in scenarioPositions){
+            InitializeBuilding(regularScenario[RNGesus.instance.GetRandomIntBetween(0, regularScenario.Length-1)], sPosition);
+        }
+    }
+
+    public void InitializeItemsOrConsumables(){
+        float numberOfbuildings = itemOrConsumableBuildingsPercentage * MapSys.instance.GetAvaliableMapPositions().Length;
+        Tuple<int,int>[] itemOrConsumablePositions = RNGesus.instance.GetRandomSubset(MapSys.instance.GetAvaliableMapPositions(), (int)numberOfbuildings);
+        foreach(Tuple<int,int> icPosition in itemOrConsumablePositions){
+            InitializeBuilding(scenarioWithItemOrConsumable[RNGesus.instance.GetRandomIntBetween(0, scenarioWithItemOrConsumable.Length-1)], icPosition);
+        }
+    }
+
+    public void InitializeChipAndChipKey(Tuple<int,int> chipPosition, Tuple<int,int> chipKeyPosition){
         InitializeBuilding(chipBuilding, chipPosition);
         InitializeBuilding(chipKeyBuilding, chipKeyPosition);
     } 
 
     public void InitializeBuilding(GameObject building, Tuple<int,int> position){
         newGO = Instantiate(building, transform);
-        newGO.transform.position = new Vector3(position.Item1 * tileSize, 10, position.Item2 * tileSize);
+        newGO.transform.position = new Vector3(position.Item1 * tileSize, 0, position.Item2 * tileSize);
     }
 }

@@ -7,6 +7,8 @@ public class GameSystem : MonoBehaviour
     public static GameSystem instance;
     public static GameSystem Get() { return instance; }
 
+    public RNGesus rng;
+
     public Sys[] systems;
 
     // Start is called before the first frame update
@@ -18,6 +20,7 @@ public class GameSystem : MonoBehaviour
 
     private void Awake() {
         instance = this;
+        rng.OnAwake();
         for (int i = 0; i < systems.Length; i++)
             systems[i].AwakeSys();
     }

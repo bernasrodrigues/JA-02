@@ -332,6 +332,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   can_pause: 0
+--- !u!1 &612908591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 612908593}
+  - component: {fileID: 612908592}
+  m_Layer: 0
+  m_Name: RNGesus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &612908592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612908591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed5d1706bdfcbb7449799bacd44c3e84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &612908593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612908591}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -310.06268, y: -533.0239, z: 457.47015}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1442085926}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &899777378
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +506,7 @@ Transform:
   - {fileID: 1817259824}
   - {fileID: 899777379}
   - {fileID: 1368628648}
+  - {fileID: 612908593}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -477,6 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb5961ee49175d943a6e51b97a09e5b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rng: {fileID: 612908592}
   systems:
   - {fileID: 439514070}
   - {fileID: 1817259825}
@@ -628,3 +674,19 @@ MonoBehaviour:
     type: 3}
   newGO: {fileID: 0}
   tileSize: 100
+  scenarioBuildingsPercentage: 0.35
+  itemOrConsumableBuildingsPercentage: 0.75
+  regularScenario:
+  - {fileID: 6588180436814891931, guid: 45a0fd13683c74849a4b64ed283f6476, type: 3}
+  - {fileID: 6588180436814891931, guid: e415ddac5140d7e41a541de11f08b7c2, type: 3}
+  - {fileID: 6588180436814891931, guid: d497921d46c8cbf4c9937062c5ed41dd, type: 3}
+  - {fileID: 8727317211834393006, guid: 15d94886f36c33a4a880341a67fe7786, type: 3}
+  - {fileID: 3182698930776940478, guid: 09275f14860ce464eae46861efe98980, type: 3}
+  - {fileID: 2993052605523852100, guid: f314e4c67f4653649929fe00d80fa8e8, type: 3}
+  - {fileID: 6588180436814891931, guid: 5322fca57ce1fa547ac607236c189cb9, type: 3}
+  - {fileID: 6588180436814891931, guid: 57881913f048e6e4784987472c24ab02, type: 3}
+  - {fileID: 6588180436814891931, guid: 6c9416554483614439f593a85953a241, type: 3}
+  scenarioWithItemOrConsumable:
+  - {fileID: 6588180436814891931, guid: 98c80da7ae8be554b8a6332e061165b1, type: 3}
+  - {fileID: 6588180436814891931, guid: 7896f01a053c0d24a9aaf4fb7bef196d, type: 3}
+  - {fileID: 6588180436814891931, guid: 1c009ed7727fca74196b3cd5a1eace75, type: 3}

@@ -47,7 +47,6 @@ public class MapSys : Sys
         mapGenerator.Initialize(mapState.CurrentLevel);
         mapState.Initialized = true;
         mapState.MapPositions = mapGenerator.MapPositions;
-        print(mapState.ChipTile.Item1);
         structureBuilder.Initialize(mapState.ChipTile, mapState.ChipKeyTile);
     }
 
@@ -62,5 +61,13 @@ public class MapSys : Sys
 
     public void SetMap(Tuple<int,int>[] mapPositionsArray){
         mapState.MapPositions = mapPositionsArray; 
+    }
+
+    public void SetScenarioPositions(Tuple<int,int>[] mapPositionsArray){
+        mapState.ScenarioPositions = mapPositionsArray; 
+    }
+
+    public Tuple<int,int>[] GetAvaliableMapPositions(){
+        return mapState.GetAvaliableMapPositions();
     }
 }
