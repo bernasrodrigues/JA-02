@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ItemGenerator : MonoBehaviour
+public class ItemGenerator
 {
     // NOTE: adicionar todos os novos items aqui!
     private static List<Item> items = new List<Item>() 
@@ -31,7 +31,7 @@ public class ItemGenerator : MonoBehaviour
     };
 
     // iniciar os dicionários separando os items nos seus devidos buckets
-    private void InitDicts() {
+    public void InitDicts() {
         foreach (Item item in items) {
             if (!itemsByRarity.ContainsKey(item.rarity))
             {
@@ -45,18 +45,6 @@ public class ItemGenerator : MonoBehaviour
             itemsByRarity[item.rarity].Add(item);
             itemsByType[item.type].Add(item);
         }  
-    }
-    
-    // Acho q isto podia ser uma classe com métodos estáticos mas não sei como podemos dar sort dos items sem isto
-    void Start()
-    {
-        InitDicts();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     // retorna um item random, pode retornar 1 item de qualquer raridade ou tipo

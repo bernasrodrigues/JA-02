@@ -7,10 +7,13 @@ public class ItemAndConsumableSys : Sys
 
     public static ItemAndConsumableSys instance;
     public static ItemAndConsumableSys Get() { return instance; }
+
+    public ItemGenerator itemGenerator = new ItemGenerator();
     
     protected override void OnAwake()
     {
         instance = this;
+        itemGenerator.InitDicts();
         //UISys.instance.RestartMenu();
     }
 
