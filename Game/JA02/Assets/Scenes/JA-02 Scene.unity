@@ -624,9 +624,9 @@ MonoBehaviour:
   noiseIterationMultiplier: 5
   levelMultiplier: 2
   tileSize: 100
-  interiorTileObj: {fileID: 680212831067799068, guid: 1d44f812d01c734468f8a0ca84815a9c,
+  interiorTileObj: {fileID: 680212831067799068, guid: 1f987521f71a3fc488e5683fac3944f2,
     type: 3}
-  exteriorTileObj: {fileID: 680212831067799068, guid: 13a94e11fc47d494b8f97979a0cb55b9,
+  exteriorTileObj: {fileID: 680212831067799068, guid: bed24fb3df6d9ba43823459a5e7a3967,
     type: 3}
 --- !u!1 &1817259823
 GameObject:
