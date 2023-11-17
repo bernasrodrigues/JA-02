@@ -54,7 +54,7 @@ public class HealingItem : Item
 {
     public HealingItem() 
     {
-        rarity = Rarity.Common;
+        rarity = Rarity.Rare;
         type = ItemType.Healing;
     }
 
@@ -91,8 +91,8 @@ public class ActiveItem : Item
 {
     public ActiveItem()
     {
-        rarity = Rarity.Common;
-        type = ItemType.Damage;
+        rarity = Rarity.Legendary;
+        type = ItemType.Utility;
     }
 
     float itemCd = 1;
