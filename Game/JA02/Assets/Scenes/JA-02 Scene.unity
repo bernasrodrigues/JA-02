@@ -626,7 +626,7 @@ MonoBehaviour:
   tileSize: 100
   interiorTileObj: {fileID: 680212831067799068, guid: 1d44f812d01c734468f8a0ca84815a9c,
     type: 3}
-  exteriorTileObj: {fileID: 4128494818879970071, guid: 9294351911d93de4b9aeabf1d6380b65,
+  exteriorTileObj: {fileID: 680212831067799068, guid: 13a94e11fc47d494b8f97979a0cb55b9,
     type: 3}
 --- !u!1 &1817259823
 GameObject:
