@@ -23,8 +23,6 @@ public class MapGenerator : MonoBehaviour
 
     private GameObject newGO;
 
-    private System.Random r;
-
     public Tuple<int,int>[] MapPositions { get => mapPositions; set => this.mapPositions = value; }
     // Start is called before the first frame update
     void Start()
@@ -39,7 +37,7 @@ public class MapGenerator : MonoBehaviour
     }
 
     public void OnAwake(){
-        r= new System.Random();
+        
     }
 
     public void  Initialize(int level){
@@ -79,22 +77,17 @@ public class MapGenerator : MonoBehaviour
         
         Tuple<int,int>[] spots = new Tuple<int, int>[4]; 
         
-        int randomCordX = r.Next(highestLimit+2, (2*highestLimit)+2 );
-        int randomCordY = r.Next(highestLimit+2, (2*highestLimit)+2 );
+        int randomCordX = RNGesus.instance.GetRandomIntBetween(highestLimit+levelMultiplier, (levelMultiplier*highestLimit)+levelMultiplier);
+        int randomCordY = RNGesus.instance.GetRandomIntBetween(highestLimit+levelMultiplier, (levelMultiplier*highestLimit)+levelMultiplier);
         
         spots[0] = new Tuple<int, int>(randomCordX, randomCordY);
         spots[1] = new Tuple<int, int>(randomCordX, -randomCordY);
         spots[2] = new Tuple<int, int>(-randomCordX, randomCordY);
         spots[3] = new Tuple<int, int>(-randomCordX, -randomCordY);
 
-        int chipSpot = r.Next(0,4);
-        MapSys.instance.SetChipSpot(spots[chipSpot]);
-
-        int chipKeySpot = r.Next(0,4);
-        while(chipKeySpot == chipSpot){
-            chipKeySpot = r.Next(0,4);
-        }
-        MapSys.instance.SetChipKeySpot(spots[chipKeySpot]);
+        Tuple<int,int>[] chipAndChipKeySpots = RNGesus.instance.GetRandomSubset(spots, 2);
+        MapSys.instance.SetChipSpot(chipAndChipKeySpots[0]);
+        MapSys.instance.SetChipKeySpot(chipAndChipKeySpots[1]);
 
         foreach(Tuple<int,int> spot in spots){
             InstantiateInteriorTileAt(spot.Item1, spot.Item2);
@@ -204,7 +197,7 @@ public class MapGenerator : MonoBehaviour
         for(int i = 0; i<level*noiseIterationMultiplier; i++){
             currentPositions = positions.Concat(addedPositions.ToArray()).ToArray();
             currentOutline = CalculateOutlineTilesWithoutDiagonals(currentPositions);
-            outlineToInstanceSubset = GetRandomSubset(currentOutline, level*noiseIterationMultiplier);
+            outlineToInstanceSubset = RNGesus.instance.GetRandomSubset(currentOutline, level*noiseIterationMultiplier);
             foreach(Tuple<int,int> position in outlineToInstanceSubset){
                 InstantiateInteriorTileAt(position.Item1, position.Item2);
                 addedPositions.Add(position);
@@ -223,27 +216,9 @@ public class MapGenerator : MonoBehaviour
     public void InstantiateInteriorTileAt(int xCoordinate, int yCoordinate){
         newGO = Instantiate(interiorTileObj, transform);
         newGO.transform.position = new Vector3(xCoordinate*tileSize, 0, yCoordinate*tileSize);
-        newGO.AddComponent<Tile>();
     }
     public void InstantiateExteriorTileAt(int xCoordinate, int yCoordinate){
         newGO = Instantiate(exteriorTileObj, transform);
         newGO.transform.position = new Vector3(xCoordinate*tileSize, 0, yCoordinate*tileSize);
     }
-
-    public T[] GetRandomSubset<T>(T[] originalArray, int x)
-    {
-        if (originalArray == null || x <= 0 || x > originalArray.Length)
-        {
-            throw new ArgumentException("Invalid input parameters");
-        }
-
-        // Shuffle the original array
-        T[] shuffledArray = originalArray.OrderBy(_ => r.Next()).ToArray();
-
-        // Take the first x elements
-        T[] smallerArray = shuffledArray.Take(x).ToArray();
-
-        return smallerArray;
-    }
-    
 }
