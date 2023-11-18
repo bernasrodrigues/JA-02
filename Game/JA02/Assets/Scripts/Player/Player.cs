@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Character
 {
-    public int health;
     public int damage;
-    public float speed;
 
     public List<ItemList> items = new List<ItemList>();
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         //For testing only - remove it
         HealingItem item = new HealingItem();
         items.Add(new ItemList(item, item.GetName(), 1));
@@ -21,7 +20,7 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {    }
 
     IEnumerator CallItemUpdate()
