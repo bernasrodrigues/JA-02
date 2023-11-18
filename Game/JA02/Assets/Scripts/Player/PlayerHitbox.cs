@@ -7,9 +7,11 @@ public class PlayerHitbox : MonoBehaviour
     public Player player;
     
     private void OnTriggerEnter(Collider other) {
-        if(other.tag == "Enemy"){
-            Enemy enemy = other.GetComponent<Enemy>();
-            enemy.health -= player.damage;
+        if (other.tag == "Enemy")
+        {
+            // FIXME: Change back to enemy maybe
+            Character enemy = other.GetComponent<Character>();
+            enemy.Hit(player.damage);
             player.CallItemOnHit(enemy);
         }    
     }

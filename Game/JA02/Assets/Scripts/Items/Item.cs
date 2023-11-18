@@ -10,16 +10,16 @@ public abstract class Item
     public ItemType type;
 
     public abstract string GetName();
-    public virtual void Update(Player player, int stacks)
+    public virtual void Update(Character player, int stacks)
     {
         
     }
 
-    public virtual void OnHit(Player player, Enemy enemy, int stacks){
+    public virtual void OnHit(Character player, Character enemy, int stacks){
 
     }
 
-    public virtual void OnUse(Player player){
+    public virtual void OnUse(Character player){
 
     }
 
@@ -62,9 +62,9 @@ public class HealingItem : Item
         return "Healing Item";
     }
 
-    public override void Update(Player player, int stacks)
+    public override void Update(Character character, int stacks)
     {
-        player.health += 5 + (2*stacks);
+        character.Heal(5 + (2*stacks));
     }
 }
 
@@ -81,9 +81,9 @@ public class FireDamageItem : Item
         return "Fire Weapon";
     }
 
-    public override void OnHit(Player player, Enemy enemy, int stacks)
+    public override void OnHit(Character player, Character enemy, int stacks)
     {
-        enemy.health -= 10 + (8*stacks);
+        enemy.Hit(10 + (8*stacks));
     }
 }
 
@@ -100,11 +100,11 @@ public class ActiveItem : Item
     {
         return "Active Item";
     }
-    public override void Update(Player player, int stacks)
+    public override void Update(Character player, int stacks)
     {
         itemCd -=1;
     }
-    public override void OnUse(Player player)
+    public override void OnUse(Character player)
     {
         if(itemCd <= 0){
             //do something

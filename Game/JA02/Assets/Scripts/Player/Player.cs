@@ -32,7 +32,7 @@ public class Player : Character
         StartCoroutine(CallItemUpdate());
     }
 
-    public void CallItemOnHit(Enemy enemy){
+    public void CallItemOnHit(Character enemy){
         foreach(ItemList i in items){
             i.item.OnHit(this, enemy, i.stacks);
         }
