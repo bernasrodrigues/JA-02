@@ -11,6 +11,8 @@ public class ItemGenerator
         new FireDamageItem(),
         new HealingItem(),
         new ActiveItem(),
+        new SpeedItem(),
+        new MaxHpItem(),
     };
     // items separados por raridade
     private Dictionary<Item.Rarity, List<Item>> itemsByRarity = new Dictionary<Item.Rarity, List<Item>>();

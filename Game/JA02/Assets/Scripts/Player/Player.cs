@@ -14,7 +14,7 @@ public class Player : Character
         base.Start();
         //For testing only - remove it
         HealingItem item = new HealingItem();
-        items.Add(new ItemList(item, item.GetName(), 1));
+        AddItem(item);
         //
         StartCoroutine(CallItemUpdate());
     }
@@ -36,5 +36,34 @@ public class Player : Character
         foreach(ItemList i in items){
             i.item.OnHit(this, enemy, i.stacks);
         }
+    }
+
+    // se calhar não correr sempre o RecalculateStats se ficar muito pesado muda-se
+    public void AddItem(Item item)
+    {
+        foreach (ItemList i in items)
+        {
+            if (i.name == item.GetName())
+            {
+                i.stacks += 1;
+                RecalculateStats();
+                return;
+            }
+        }
+        items.Add(new ItemList(item, item.GetName(), 1));
+        RecalculateStats();
+    }
+
+    public void RecalculateStats() 
+    {
+        foreach (ItemList i in items)
+        {
+            speed = baseSpeed;
+            maxHP = baseMaxHP;
+
+            speed = i.item.OnRecalculateStat(this, Item.CharacterStat.Speed, speed, i.stacks);
+            maxHP = i.item.OnRecalculateStat(this, Item.CharacterStat.MaxHp, maxHP, i.stacks);
+        }
+        // apply status effects here
     }
 }

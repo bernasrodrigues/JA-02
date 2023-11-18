@@ -23,6 +23,10 @@ public abstract class Item
 
     }
 
+    public virtual float OnRecalculateStat(Character player, CharacterStat statModified, float stat, int stacks){
+        return stat;
+    }
+
     // Raridade to item para depois user no ItemGenerator
     public enum Rarity
     {
@@ -40,6 +44,14 @@ public abstract class Item
         Utility = 2,
     }
     public static int itemTypeLength = Enum.GetNames(typeof(Item.ItemType)).Length;
+
+    public enum CharacterStat 
+    {
+        MaxHp,
+        Speed,
+        Damage,
+        AttackSpeed,
+    }
 }
 
 //A lista de items tem de estar atualizada 
@@ -112,5 +124,49 @@ public class ActiveItem : Item
             //reset cd
             itemCd = 10;
         }
+    }
+}
+
+// Item that gives 20% speed per stack
+public class SpeedItem : Item
+{
+    public SpeedItem()
+    {
+        rarity = Rarity.Common;
+        type = ItemType.Utility;
+    }
+
+    public override string GetName()
+    {
+        return "Speed Item";
+    }
+
+    public override float OnRecalculateStat(Character player, CharacterStat statModified, float stat, int stacks)
+    {
+        if (statModified != CharacterStat.Speed) { return stat; }
+
+        return stat + 0.20f * stacks * player.baseSpeed;
+    }
+}
+
+// Item that gives 8% max hp per stack
+public class MaxHpItem : Item
+{
+    public MaxHpItem()
+    {
+        rarity = Rarity.Common;
+        type = ItemType.Healing;
+    }
+
+    public override string GetName()
+    {
+        return "Max Hp Item";
+    }
+
+    public override float OnRecalculateStat(Character player, CharacterStat statModified, float stat, int stacks)
+    {
+        if (statModified != CharacterStat.MaxHp) { return stat; }
+
+        return stat + 0.08f * stacks * player.baseMaxHP;
     }
 }

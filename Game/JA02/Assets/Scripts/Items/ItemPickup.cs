@@ -22,18 +22,9 @@ public class ItemPickup : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if(other.tag == "Player"){
             Player player = other.GetComponent<Player>();
-            AddItem(player);
+            player.AddItem(item);
             Destroy(this.gameObject);
         }
     }
 
-    public void AddItem(Player player){
-        foreach(ItemList i in player.items){
-            if (i.name == item.GetName()){
-                i.stacks+=1;
-                return;
-            }
-        }
-        player.items.Add(new ItemList(item, item.GetName(), 1));
-    }
 }
