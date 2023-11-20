@@ -3,7 +3,17 @@ guid: f61994a0ff9abf14e94e8f01eac0aa3d
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal.009
+    second: {fileID: 2100000, guid: 666a98d1aab909b4083f0a50ee67b097, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Trafficsign3.001
+    second: {fileID: 2100000, guid: fa899f10b31cd8d498fe764501bc055e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
