@@ -7,6 +7,11 @@ public class UISys : Sys
 
     public static UISys instance;
     public static UISys Get() { return instance; }
+
+    [SerializeField]
+    private GameObject[] windows;
+    [SerializeField]
+    private GameObject characterInfo;
     
     protected override void OnAwake()
     {
@@ -32,5 +37,16 @@ public class UISys : Sys
     protected override void OnUpdate()
     {
         //throw new System.NotImplementedException();
+    }
+
+    public void OpenWindow(GameObject windowToOpen){
+        CloseAll();
+        windowToOpen.SetActive(true);
+    }
+
+    public void CloseAll(){
+        foreach(GameObject window in windows){
+            window.SetActive(false);
+        }
     }
 }
