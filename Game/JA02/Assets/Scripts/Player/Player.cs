@@ -28,7 +28,7 @@ public class Player : Character
         foreach(ItemList i in items){
             i.item.Update(this, i.stacks);
         }
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(Item.GLOBAL_UPDATE_TIME);
         StartCoroutine(CallItemUpdate());
     }
 

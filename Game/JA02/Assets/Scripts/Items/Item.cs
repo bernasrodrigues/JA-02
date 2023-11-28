@@ -8,6 +8,7 @@ public abstract class Item
 {
     public Rarity rarity = Rarity.Common;
     public ItemType type;
+    public static float GLOBAL_UPDATE_TIME = 0.5f;
 
     public abstract string GetName();
     public virtual void Update(Character player, int stacks)
@@ -114,7 +115,7 @@ public class ActiveItem : Item
     }
     public override void Update(Character player, int stacks)
     {
-        itemCd -=1;
+        itemCd -= GLOBAL_UPDATE_TIME;
     }
     public override void OnUse(Character player)
     {
