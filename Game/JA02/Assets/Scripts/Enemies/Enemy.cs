@@ -1,29 +1,20 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Character
 {
-    public float health;
-    public float maxHealth;
-    public int damage;
-    public float speed;
-
-
-
     // State Machine
     public EnemyStateMachine stateMachine;
     public ChaseState chaseState;
     public IdleState idleState;
-
+    public ShootingState shootingState;
 
     //private variables
     public GameObject playerTarget;     // FOR TESTING PURPOUSES IMPLEMENTATION LATER WILL BE DIFERENT
     public NavMeshAgent navMeshAgent;
 
 
-
-
-    private void Awake()
+    protected virtual void Awake()
     {
         stateMachine = new EnemyStateMachine();
 
@@ -31,23 +22,19 @@ public class Enemy : MonoBehaviour
         chaseState = new ChaseState(this , stateMachine);
     }
 
-
-
-
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-
+        base.Start();
         stateMachine.Initialize(chaseState);
     }
-
+    
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-
+        base.Update();
         stateMachine.currentEnemyState.UpdateState();
     }
-
 
 
     private void FixedUpdate()
@@ -55,24 +42,15 @@ public class Enemy : MonoBehaviour
         stateMachine.currentEnemyState.FixedUpdateState();
     }
 
-
-
-
-    private void AnimationTriggerEvent(AnimationTriggerType triggerType)
+    protected virtual void AnimationTriggerEvent(AnimationTriggerType triggerType)
     {
         // IF ANIMATION TRIGGERS ARE USED...
     }
-
-
 
     public enum AnimationTriggerType
     {
 
     }
-
-
-
-
 
 
 }
