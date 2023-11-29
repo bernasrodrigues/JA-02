@@ -73,7 +73,7 @@ public abstract class Weapon : MonoBehaviour
     */
 
     // bolleans
-    protected bool shooting = false, reloading = false, readyToShoot = true, shootCooldown = true;
+    protected bool shooting = false, reloading = false, readyToShoot = true, shootCooldownAfterShooting = true;
     /*
     shooting -> check if shooting
     reloading -> to check if reloading
@@ -104,7 +104,6 @@ public abstract class Weapon : MonoBehaviour
 
     public void Shoot()
     {
-        readyToShoot = true;
         Vector3 direction = GetTargetDirection();
 
         for (int i = 1; i <= BulletsPerShoot; i++)
@@ -118,12 +117,13 @@ public abstract class Weapon : MonoBehaviour
 
         bulletsLeft--;
         launchEvent();
-        if (shootCooldown)
-        {
-            //Debug.Log("Shot colldown");
-            Invoke("ResetShot", FireRate);
-            shootCooldown = false;
-        }
+
+
+
+        readyToShoot = false;
+        //Debug.Log("Shot colldown");
+        Invoke("ResetShot", FireRate);
+        
     }
 
     public void EnemyShoot(Vector3 direction)
@@ -158,11 +158,11 @@ public abstract class Weapon : MonoBehaviour
 
     public Vector3 GetTargetDirection()
     {
-
         Vector3 direction = PlayerMovement.Instance.GetAimingPosition() - PlayerMovement.Instance.gameObject.transform.position;
+        direction.y = this.transform.position.y;
 
 
-        return direction.normalized;
+        return direction;
 
 
         /*
@@ -193,8 +193,8 @@ public abstract class Weapon : MonoBehaviour
     public Vector3 ApplySpread(Vector3 direction)
     {
         float x = Random.Range(-Spread, Spread);
-        float y = Random.Range(-Spread, Spread);
-        direction += new Vector3(x, y, 0);
+        float z = Random.Range(-Spread, Spread);
+        direction += new Vector3(x, 0, z);
 
         return direction;
     }
@@ -202,7 +202,7 @@ public abstract class Weapon : MonoBehaviour
     public void ResetShot()
     {
         readyToShoot = true;
-        shootCooldown = true;
+        shootCooldownAfterShooting = true;
         //Debug.Log(readyToShoot);
     }
 

@@ -9,11 +9,12 @@ public class Bullet : MonoBehaviour
     public Collider col;
     public List<string> tagsToHit;       // tags to ignore colisions
 
+    public float timeTillDestroy = 3;
 
 
     void Start()
     {
-        GameObject.Destroy(this.gameObject, 3);
+        GameObject.Destroy(this.gameObject, timeTillDestroy);
     }
 
 
@@ -29,7 +30,6 @@ public class Bullet : MonoBehaviour
             GameObject.Destroy(this.gameObject);
         }
     }
-
 
     public void SetDamage(float damage)
     {
