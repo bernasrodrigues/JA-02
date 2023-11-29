@@ -40,4 +40,12 @@ public class GameSystem : MonoBehaviour
     public void Quit(){
         Application.Quit();
     }
+
+    public void NextLevel(){
+
+    }
+
+    public void Restart(){
+        
+    }
 }
