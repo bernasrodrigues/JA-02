@@ -74,7 +74,7 @@ public abstract class Weapon : MonoBehaviour
     */
 
     // bolleans
-    protected bool shooting = false, reloading = false, readyToShoot = true, shootCooldown = true;
+    protected bool shootKeyPressed = false, reloading = false, readyToShoot = true, shootCooldownAfterShooting = true;
     /*
     shooting -> check if shooting
     reloading -> to check if reloading
@@ -99,13 +99,12 @@ public abstract class Weapon : MonoBehaviour
 
     public void CheckShootingMode()     // check if a weapon is fired as automatic or as single fire
     {
-        if (firemode == FireMode.Auto) shooting = Input.GetMouseButton(0);
-        else if (firemode == FireMode.Single) shooting = Input.GetMouseButtonDown(0);
+        if (firemode == FireMode.Auto) shootKeyPressed = Input.GetMouseButton(0);
+        else if (firemode == FireMode.Single) shootKeyPressed = Input.GetMouseButtonDown(0);
     }
 
     public void Shoot()
     {
-        readyToShoot = true;
         Vector3 direction = GetTargetDirection();
 
         for (int i = 1; i <= BulletsPerShoot; i++)
@@ -119,12 +118,13 @@ public abstract class Weapon : MonoBehaviour
 
         bulletsLeft--;
         launchEvent();
-        if (shootCooldown)
-        {
-            //Debug.Log("Shot colldown");
-            Invoke("ResetShot", FireRate);
-            shootCooldown = false;
-        }
+
+
+
+        readyToShoot = false;
+        //Debug.Log("Shot colldown");
+        Invoke("ResetShot", FireRate);
+        
     }
 
     /*
@@ -146,11 +146,11 @@ public abstract class Weapon : MonoBehaviour
 
     public Vector3 GetTargetDirection()
     {
-
         Vector3 direction = PlayerMovement.Instance.GetAimingPosition() - PlayerMovement.Instance.gameObject.transform.position;
+        direction.y = this.transform.position.y;
 
 
-        return direction.normalized;
+        return direction;
 
 
 
@@ -185,8 +185,8 @@ public abstract class Weapon : MonoBehaviour
     public Vector3 ApplySpread(Vector3 direction)
     {
         float x = Random.Range(-Spread, Spread);
-        float y = Random.Range(-Spread, Spread);
-        direction += new Vector3(x, y, 0);
+        float z = Random.Range(-Spread, Spread);
+        direction += new Vector3(x, 0, z);
 
         return direction;
     }
@@ -195,14 +195,13 @@ public abstract class Weapon : MonoBehaviour
     public void ResetShot()
     {
         readyToShoot = true;
-        shootCooldown = true;
+        shootCooldownAfterShooting = true;
         //Debug.Log(readyToShoot);
     }
 
     // Check if able to reload, if able -> call "reloadFinished" method
     public virtual void Reload()
     {
-        print("AAAAAABBBBBBBBBBBAAAA");
         if (ammoReserve > 0)
         {
             reloading = true;
