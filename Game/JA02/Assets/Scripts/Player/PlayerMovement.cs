@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -20,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public float maxVelocityChange = 10.0f;
     public bool canJump = true;
     public float jumpHeight = 2.0f;
+    
     //Private variables
     bool grounded = false;
     Rigidbody r;
@@ -31,8 +30,34 @@ public class PlayerMovement : MonoBehaviour
     //Plane that represents imaginary floor that will be used to calculate Aim target position
     Plane surfacePlane = new Plane();
 
+    [SerializeField]  private Weapon equipedWeapon;
+    public static PlayerMovement Instance { get; private set; }
+
+
+
+
+
+
     void Awake()
     {
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+
+
+
+
+
+
+
+
+
         r = GetComponent<Rigidbody>();
         r.freezeRotation = true;
         r.useGravity = false;
@@ -53,7 +78,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // Set commands here and execute them at the fixed update
+
+        if (equipedWeapon.gameObject.activeSelf)  // don't check inputs while the weapon is inactive (when switching weapons)
+            equipedWeapon.CheckInput();    // handle equiped weapon
     }
 
 
@@ -91,7 +118,11 @@ public class PlayerMovement : MonoBehaviour
                 JumpCommand jumpCMD = new JumpCommand(this);
                 CommandManager.Instance.AddCommand(jumpCMD);
             }
+
         }
+
+
+
 
 
 
@@ -157,7 +188,12 @@ public class PlayerMovement : MonoBehaviour
         return r;
     }
 
+    public Vector3 GetAimingPosition()
+    {
 
+        return targetObject.transform.position;
+
+    }
 
     #endregion
 

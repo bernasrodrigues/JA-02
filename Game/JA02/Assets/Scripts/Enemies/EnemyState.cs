@@ -9,7 +9,6 @@ public class EnemyState
     protected EnemyStateMachine enemyStateMachine;
 
 
-
     public EnemyState(Enemy enemy , EnemyStateMachine enemyStateMachine)
     {
         this.enemy = enemy;
@@ -23,11 +22,4 @@ public class EnemyState
     public virtual void UpdateState() { }
     public virtual void FixedUpdateState() { }
     public virtual void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType) { }
-
-    public virtual void OnCollisionEnter(Collider other) { }
-
-    public virtual void OnTriggerEnter(Collider other) { } 
-
-
-
 }
