@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : Character
 {
+    public static Player instance;
     public int damage;
 
     public List<ItemList> items = new List<ItemList>();
@@ -11,6 +12,8 @@ public class Player : Character
     // Start is called before the first frame update
     protected override void Start()
     {
+        instance = this;
+        
         base.Start();
         //For testing only - remove it
         HealingItem item = new HealingItem();
@@ -38,7 +41,7 @@ public class Player : Character
         }
     }
 
-    // se calhar não correr sempre o RecalculateStats se ficar muito pesado muda-se
+    // se calhar nï¿½o correr sempre o RecalculateStats se ficar muito pesado muda-se
     public void AddItem(Item item)
     {
         foreach (ItemList i in items)

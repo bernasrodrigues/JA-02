@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -6,49 +7,29 @@ public class Bullet : MonoBehaviour
     public float damage;
     public Rigidbody rb;
     public Collider col;
-    public List<string> tagsToIgnore;       // tags to ignore colisions
+    public List<string> tagsToHit;       // tags to ignore colisions
 
     public float timeTillDestroy = 3;
 
 
     void Start()
     {
-        //Physics.IgnoreCollision(col, SysPlayer.Get().getPlayerObj().GetComponent<Collider>());
-
-        Invoke("DestroyObject", timeTillDestroy);
+        GameObject.Destroy(this.gameObject, timeTillDestroy);
     }
 
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-       if (collision.gameObject.tag == "Player")
-        {
-            return;
+        if(tagsToHit.Contains(collider.tag)){
+            collider.GetComponent<Character>().Hit(damage);
+            GameObject.Destroy(this.gameObject);
         }
 
-        /*
-         IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();      // Check if the object implements the IDamageable interface
-         if (damageable != null)                                                         // if the object is damageable (ie. an enemy)
-         {
-             damageable.TakeDamage(damage);                                              // deal damage
-         }
-        */
-
-        // rb.velocity = rb.velocity / 15;
-        DestroyObject(1);
-
+        if(collider.tag == "Environment"){
+            GameObject.Destroy(this.gameObject);
+        }
     }
-
-
-    public void DestroyObject(float timeTillDestroy = 0)
-    {
-
-        GameObject.Destroy(this.gameObject , timeTillDestroy);
-    }
-
-
-
 
     public void SetDamage(float damage)
     {

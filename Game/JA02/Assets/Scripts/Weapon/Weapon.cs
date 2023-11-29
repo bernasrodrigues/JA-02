@@ -13,7 +13,6 @@ public abstract class Weapon : MonoBehaviour
     public int ammoReserve;
     public int maximumAmmo;
 
-
     /*
     bulletsLeft = bullets that the player has in the magazine (bullets ready to shoot before having to reload)
     magazineSize = maximum number of bullets that each magazine holds
@@ -74,7 +73,7 @@ public abstract class Weapon : MonoBehaviour
     */
 
     // bolleans
-    protected bool shootKeyPressed = false, reloading = false, readyToShoot = true, shootCooldownAfterShooting = true;
+    protected bool shooting = false, reloading = false, readyToShoot = true, shootCooldownAfterShooting = true;
     /*
     shooting -> check if shooting
     reloading -> to check if reloading
@@ -99,8 +98,8 @@ public abstract class Weapon : MonoBehaviour
 
     public void CheckShootingMode()     // check if a weapon is fired as automatic or as single fire
     {
-        if (firemode == FireMode.Auto) shootKeyPressed = Input.GetMouseButton(0);
-        else if (firemode == FireMode.Single) shootKeyPressed = Input.GetMouseButtonDown(0);
+        if (firemode == FireMode.Auto) shooting = Input.GetMouseButton(0);
+        else if (firemode == FireMode.Single) shooting = Input.GetMouseButtonDown(0);
     }
 
     public void Shoot()
@@ -125,6 +124,19 @@ public abstract class Weapon : MonoBehaviour
         //Debug.Log("Shot colldown");
         Invoke("ResetShot", FireRate);
         
+    }
+
+    public void EnemyShoot(Vector3 direction)
+    {
+        readyToShoot = true;
+
+        for (int i = 1; i <= BulletsPerShoot; i++)
+        {
+            direction = ApplySpread(direction);         // apply spread to the direction
+            GameObject bullet = InstantiateBullet();
+            bullet.transform.forward = direction.normalized;                                                   // bullet pointing forward
+            bullet.GetComponent<Rigidbody>().AddForce(direction.normalized * bulletSpeed, ForceMode.Impulse);
+        }
     }
 
     /*
@@ -153,9 +165,6 @@ public abstract class Weapon : MonoBehaviour
         return direction;
 
 
-
-
-
         /*
 
         // ray to the middle of the screen (where the camera is pointing)
@@ -181,7 +190,6 @@ public abstract class Weapon : MonoBehaviour
             */
     }
 
-
     public Vector3 ApplySpread(Vector3 direction)
     {
         float x = Random.Range(-Spread, Spread);
@@ -190,7 +198,6 @@ public abstract class Weapon : MonoBehaviour
 
         return direction;
     }
-
 
     public void ResetShot()
     {
@@ -206,7 +213,6 @@ public abstract class Weapon : MonoBehaviour
         {
             reloading = true;
             Invoke("ReloadFinished", ReloadTime);
-
         }
     }
 
@@ -228,7 +234,6 @@ public abstract class Weapon : MonoBehaviour
         reloading = false;
     }
 
-
     // When the weapon is enabled (when it is equiped) it delays until weapon can be fired
     public virtual void OnEnable()
     {
@@ -237,7 +242,6 @@ public abstract class Weapon : MonoBehaviour
         launchEvent();
     }
 
-
     public virtual GameObject InstantiateBullet()       // created the bullet and sets the variables(damage)
     {
         GameObject bullet = Instantiate(projectile, firePoint.position, Quaternion.identity);
@@ -245,8 +249,6 @@ public abstract class Weapon : MonoBehaviour
 
         return bullet;
     }
-
-
 
 
     public virtual void launchEvent()       // launch bullet that shows the number of bullets changed

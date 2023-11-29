@@ -8,8 +8,8 @@ class Pistol : Weapon
         CheckShootingMode();
 
         // Handle reloads
-        if (Input.GetButtonDown("Reload") && bulletsLeft < MagazineSize && !reloading) Reload();   // reload on "R" key
-        if (readyToShoot && shootKeyPressed && !reloading && bulletsLeft <= 0) Reload();                                   // auto reload when firing an empty clip
+        if (Input.GetButton("Reload") && bulletsLeft < MagazineSize && !reloading) Reload();   // reload on "R" key
+        if (readyToShoot && shooting && !reloading && bulletsLeft <= 0) Reload();              // auto reload when firing an empty clip
 
         /*
         print(readyToShoot);
@@ -19,7 +19,7 @@ class Pistol : Weapon
         */
 
 
-        if (readyToShoot && shootKeyPressed && !reloading && bulletsLeft > 0)
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
         {
             Shoot();
         }
@@ -32,7 +32,6 @@ class Pistol : Weapon
         reloading = true;
         float reloadTimeMod = ReloadTime;
         Invoke("ReloadFinished", reloadTimeMod);
-        
     }
 
     // ammo reserves dont matter for starting gun

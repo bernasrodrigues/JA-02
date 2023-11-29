@@ -36,14 +36,4 @@ public class IdleState : EnemyState
     {
         base.FixedUpdateState();
     }
-
-    public override void OnCollisionEnter(Collider other)
-    {
-        base.OnCollisionEnter(other);
-    }
-
-    public override void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
-    }
 }

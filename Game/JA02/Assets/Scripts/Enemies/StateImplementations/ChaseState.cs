@@ -24,27 +24,18 @@ public class ChaseState : EnemyState
     public override void ExitState()
     {
         base.ExitState();
+        enemy.navMeshAgent.ResetPath();
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
 
-        enemy.navMeshAgent.destination = enemy.playerTarget.transform.position;
+        enemy.navMeshAgent.destination = Player.instance.GetPosition();
     }
 
     public override void FixedUpdateState()
     {
         base.FixedUpdateState();
-    }
-
-    public override void OnCollisionEnter(Collider other)
-    {
-        base.OnCollisionEnter(other);
-    }
-
-    public override void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
     }
 }
