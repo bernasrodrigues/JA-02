@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 2869590397122994171}
   m_Layer: 0
   m_Name: Building_Big_0_Size_2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

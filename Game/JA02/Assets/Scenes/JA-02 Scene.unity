@@ -650,6 +650,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemyi1
       objectReference: {fileID: 0}
+    - target: {fileID: 2426884107806853929, guid: 7eb2bbbdb30330743942870e5c87d616,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4638782087542026473, guid: 7eb2bbbdb30330743942870e5c87d616,
         type: 3}
       propertyPath: m_RootOrder
@@ -668,7 +673,7 @@ PrefabInstance:
     - target: {fileID: 4638782087542026473, guid: 7eb2bbbdb30330743942870e5c87d616,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -34.4
+      value: -184.2
       objectReference: {fileID: 0}
     - target: {fileID: 4638782087542026473, guid: 7eb2bbbdb30330743942870e5c87d616,
         type: 3}

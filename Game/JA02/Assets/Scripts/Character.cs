@@ -50,6 +50,8 @@ public class Character : MonoBehaviour
     public virtual void Die() 
     {
         Debug.Log("dead");
+        //death animation
+        GameObject.Destroy(this.gameObject, 2);
     }
 
     public Vector3 GetPosition(){

@@ -137,16 +137,6 @@ public abstract class Weapon : MonoBehaviour
             GameObject bullet = InstantiateBullet();
             bullet.transform.forward = direction.normalized;                                                   // bullet pointing forward
             bullet.GetComponent<Rigidbody>().AddForce(direction.normalized * bulletSpeed, ForceMode.Impulse);
-            //bullet.GetComponent<Rigidbody>().AddForce(firstPersonCamera.transform.up * upwardForce, ForceMode.Impulse);   // for grenades
-        }
-
-        bulletsLeft--;
-        launchEvent();
-        if (shootCooldown)
-        {
-            //Debug.Log("Shot colldown");
-            Invoke("ResetShot", FireRate);
-            shootCooldown = false;
         }
     }
 

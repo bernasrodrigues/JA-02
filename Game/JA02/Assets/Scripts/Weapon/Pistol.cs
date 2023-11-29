@@ -9,7 +9,7 @@ class Pistol : Weapon
 
         // Handle reloads
         if (Input.GetButton("Reload") && bulletsLeft < MagazineSize && !reloading) Reload();   // reload on "R" key
-        if (readyToShoot && shooting && !reloading && bulletsLeft <= 0) Reload();                                   // auto reload when firing an empty clip
+        if (readyToShoot && shooting && !reloading && bulletsLeft <= 0) Reload();              // auto reload when firing an empty clip
 
         /*
         print(readyToShoot);
@@ -31,7 +31,7 @@ class Pistol : Weapon
     {
         reloading = true;
         float reloadTimeMod = ReloadTime;
-        
+        Invoke("ReloadFinished", reloadTimeMod);
     }
 
     // ammo reserves dont matter for starting gun

@@ -50,15 +50,15 @@ MonoBehaviour:
   ammoReserve: 10
   maximumAmmo: 100
   _damage: 10
-  _fireRate: 1
+  _fireRate: 0
   _spread: 0
-  _reloadTime: 2
+  _reloadTime: 0
   _equipSpeedModifier: 10
   bulletSpeed: 10
   _bulletsPerShoot: 1
   firemode: 0
   isInInventory: 0
-  projectile: {fileID: 8219656019793728726, guid: 0dc7018d307208f44aa295da88ce8286,
+  projectile: {fileID: 8219656019793728726, guid: c7340fec70582754cbc17fd872f18de9,
     type: 3}
   firePoint: {fileID: 781685046139814234}
   shootAudio: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 2247230750068593292}
   m_Layer: 0
   m_Name: Enemyi2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,11 +141,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63197bed44cf0640aea27abd0b7cdfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaxHP: 0
+  baseMaxHP: 10
   baseSpeed: 0
   speed: 0
-  maxHP: 0
-  hp: 0
+  maxHP: 10
+  hp: 10
   playerTarget: {fileID: 2274458241381397470, guid: f5f5f6d85a141b641bef7db5e8651600,
     type: 3}
   navMeshAgent: {fileID: 2247230750068593292}
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 373193101096352916}
   m_Layer: 0
   m_Name: Emeny2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,6 +273,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 89d34c6d14bd71f42b154b8c8066a398,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89d34c6d14bd71f42b154b8c8066a398, type: 3}

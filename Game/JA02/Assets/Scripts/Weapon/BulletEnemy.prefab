@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1402597653737379437}
   - component: {fileID: 2608683004726356670}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: BulletEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8219656019793728726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.39308912, y: 1.4622082, z: 0.39098954}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4025346341936908229, guid: 117872f6ad3b9114b80bd1dac3f3eddd, type: 3}
+  - {fileID: -8164350269545380476, guid: 117872f6ad3b9114b80bd1dac3f3eddd, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   rb: {fileID: 2608683004726356670}
   col: {fileID: 7271209892911257721}
   tagsToHit:
-  - Enemy
+  - Player
 --- !u!54 &2608683004726356670
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1559606341100303727}
   m_Layer: 0
   m_Name: Enemyi1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,15 +47,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7bb2229c1599d042b654065b0f42aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaxHP: 0
+  baseMaxHP: 20
   baseSpeed: 0
   speed: 0
-  maxHP: 0
-  hp: 0
+  maxHP: 20
+  hp: 20
   playerTarget: {fileID: 2274458241381397470, guid: f5f5f6d85a141b641bef7db5e8651600,
     type: 3}
   navMeshAgent: {fileID: 4721609331932956114}
   damage: 5
+  idleTime: 1
+  startingIdleTime: 1
 --- !u!195 &4721609331932956114
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -89,7 +91,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 1.85
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7434686520549496624
 GameObject:
@@ -102,7 +104,7 @@ GameObject:
   - component: {fileID: 3711862365055657414}
   m_Layer: 0
   m_Name: Emeny1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,6 +191,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9ffa190d44d88bd46ba45374e6fd759c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ffa190d44d88bd46ba45374e6fd759c, type: 3}
