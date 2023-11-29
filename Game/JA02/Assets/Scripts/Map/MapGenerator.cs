@@ -61,6 +61,7 @@ public class MapGenerator : MonoBehaviour
         
         for(int x = lowestLimit; x <= highestLimit; x++){
             for(int y = lowestLimit; y <= highestLimit; y++){
+                
                 InstantiateInteriorTileAt(x,y);
                 spots[counter] = new Tuple<int, int>(x,y);
                 counter++;

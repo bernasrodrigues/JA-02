@@ -1710,10 +1710,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a182072149b2a45b10c68998bc1021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 0
-  damage: 0
+  baseMaxHP: 0
+  baseSpeed: 0
   speed: 0
+  maxHP: 0
+  hp: 0
   playerTarget: {fileID: 1341707138}
   navMeshAgent: {fileID: 389442372}
 --- !u!4 &389442371
@@ -4793,10 +4794,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a182072149b2a45b10c68998bc1021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 0
-  damage: 0
+  baseMaxHP: 0
+  baseSpeed: 0
   speed: 0
+  maxHP: 0
+  hp: 0
   playerTarget: {fileID: 1341707138}
   navMeshAgent: {fileID: 986889948}
 --- !u!4 &986889950
@@ -6277,6 +6279,7 @@ MonoBehaviour:
   maxVelocityChange: 10
   canJump: 1
   jumpHeight: 2
+  equipedWeapon: {fileID: 0}
 --- !u!136 &1341707141
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7688,10 +7691,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a182072149b2a45b10c68998bc1021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 0
-  damage: 0
+  baseMaxHP: 0
+  baseSpeed: 0
   speed: 0
+  maxHP: 0
+  hp: 0
   playerTarget: {fileID: 1341707138}
   navMeshAgent: {fileID: 1802596977}
 --- !u!4 &1802596979
@@ -9026,10 +9030,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a182072149b2a45b10c68998bc1021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 0
-  damage: 0
+  baseMaxHP: 0
+  baseSpeed: 0
   speed: 0
+  maxHP: 0
+  hp: 0
   playerTarget: {fileID: 1341707138}
   navMeshAgent: {fileID: 2084188899}
 --- !u!4 &2084188901
@@ -9273,22 +9278,26 @@ MonoBehaviour:
     type: 3}
   newGO: {fileID: 0}
   tileSize: 100
-  scenarioBuildingsPercentage: 0.35
-  itemOrConsumableBuildingsPercentage: 0.75
+  scenarioBuildingsPercentage: 0.6
+  itemOrConsumableBuildingsPercentage: 0.9
   regularScenario:
-  - {fileID: 6588180436814891931, guid: 45a0fd13683c74849a4b64ed283f6476, type: 3}
-  - {fileID: 6588180436814891931, guid: e415ddac5140d7e41a541de11f08b7c2, type: 3}
-  - {fileID: 6588180436814891931, guid: d497921d46c8cbf4c9937062c5ed41dd, type: 3}
-  - {fileID: 8727317211834393006, guid: 15d94886f36c33a4a880341a67fe7786, type: 3}
-  - {fileID: 3182698930776940478, guid: 09275f14860ce464eae46861efe98980, type: 3}
-  - {fileID: 2993052605523852100, guid: f314e4c67f4653649929fe00d80fa8e8, type: 3}
-  - {fileID: 6588180436814891931, guid: 5322fca57ce1fa547ac607236c189cb9, type: 3}
-  - {fileID: 6588180436814891931, guid: 57881913f048e6e4784987472c24ab02, type: 3}
-  - {fileID: 6588180436814891931, guid: 6c9416554483614439f593a85953a241, type: 3}
+  - {fileID: 3121525109740557203, guid: 9130c79d4dd92764b9cd88801c295064, type: 3}
+  - {fileID: 2863094517202304836, guid: 69408e93fd4b1444b9c2ae3bdccee9d2, type: 3}
+  - {fileID: 1200196364560017987, guid: 5dde9823c65c7c444a1e6de34cd59fe1, type: 3}
+  - {fileID: 3614401584668775228, guid: b027460b9934c6e44bbbeaefd50d0827, type: 3}
+  - {fileID: 5812863449002591621, guid: adef4618c11505c4e83ce7c651192709, type: 3}
+  - {fileID: 7150805117178427097, guid: f61f42fed21759243942cf7637bd2e0e, type: 3}
   scenarioWithItemOrConsumable:
-  - {fileID: 6588180436814891931, guid: 98c80da7ae8be554b8a6332e061165b1, type: 3}
-  - {fileID: 6588180436814891931, guid: 7896f01a053c0d24a9aaf4fb7bef196d, type: 3}
-  - {fileID: 6588180436814891931, guid: 1c009ed7727fca74196b3cd5a1eace75, type: 3}
+  - {fileID: 8168157271254137055, guid: 744df2523b5e830428110683a49bb13f, type: 3}
+  - {fileID: 7052289727081867250, guid: 4493584fba2f3764ca247c45d917cc7f, type: 3}
+  - {fileID: 5572785012017832661, guid: f81c25851943cfb4d839005ed9c128b3, type: 3}
+  - {fileID: 6447874952988910491, guid: 952692b4fe19b594b95e35767e82c79c, type: 3}
+  - {fileID: 6447874952988910491, guid: 8780c41114f4dd0449cb6aa584ceccb8, type: 3}
+  - {fileID: 6447874952988910491, guid: 977997df42b7acf4c9bd625f1fa2492b, type: 3}
+  - {fileID: 6447874952988910491, guid: 55e1fd9be974d4140955fb24664190f6, type: 3}
+  - {fileID: 6447874952988910491, guid: 8ebec6efd481e5544840b4a034e95dbf, type: 3}
+  - {fileID: 6447874952988910491, guid: beffcfa5f16da1645b218dfea08e556c, type: 3}
+  - {fileID: 6447874952988910491, guid: 370264d2df6c869459c832e5fcbb8297, type: 3}
 --- !u!1 &2139902625
 GameObject:
   m_ObjectHideFlags: 0
