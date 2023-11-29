@@ -13,7 +13,6 @@ public abstract class Weapon : MonoBehaviour
     public int ammoReserve;
     public int maximumAmmo;
 
-
     /*
     bulletsLeft = bullets that the player has in the magazine (bullets ready to shoot before having to reload)
     magazineSize = maximum number of bullets that each magazine holds
@@ -166,9 +165,6 @@ public abstract class Weapon : MonoBehaviour
         return direction.normalized;
 
 
-
-
-
         /*
 
         // ray to the middle of the screen (where the camera is pointing)
@@ -194,7 +190,6 @@ public abstract class Weapon : MonoBehaviour
             */
     }
 
-
     public Vector3 ApplySpread(Vector3 direction)
     {
         float x = Random.Range(-Spread, Spread);
@@ -203,7 +198,6 @@ public abstract class Weapon : MonoBehaviour
 
         return direction;
     }
-
 
     public void ResetShot()
     {
@@ -215,12 +209,10 @@ public abstract class Weapon : MonoBehaviour
     // Check if able to reload, if able -> call "reloadFinished" method
     public virtual void Reload()
     {
-        print("AAAAAABBBBBBBBBBBAAAA");
         if (ammoReserve > 0)
         {
             reloading = true;
             Invoke("ReloadFinished", ReloadTime);
-
         }
     }
 
@@ -242,7 +234,6 @@ public abstract class Weapon : MonoBehaviour
         reloading = false;
     }
 
-
     // When the weapon is enabled (when it is equiped) it delays until weapon can be fired
     public virtual void OnEnable()
     {
@@ -251,7 +242,6 @@ public abstract class Weapon : MonoBehaviour
         launchEvent();
     }
 
-
     public virtual GameObject InstantiateBullet()       // created the bullet and sets the variables(damage)
     {
         GameObject bullet = Instantiate(projectile, firePoint.position, Quaternion.identity);
@@ -259,8 +249,6 @@ public abstract class Weapon : MonoBehaviour
 
         return bullet;
     }
-
-
 
 
     public virtual void launchEvent()       // launch bullet that shows the number of bullets changed
