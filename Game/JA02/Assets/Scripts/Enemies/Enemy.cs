@@ -9,7 +9,7 @@ public class Enemy : Character
     public IdleState idleState;
     public ShootingState shootingState;
 
-    //private variables
+    //public variables
     public GameObject playerTarget;     // FOR TESTING PURPOUSES IMPLEMENTATION LATER WILL BE DIFERENT
     public NavMeshAgent navMeshAgent;
 
@@ -35,7 +35,6 @@ public class Enemy : Character
         base.Update();
         stateMachine.currentEnemyState.UpdateState();
     }
-
 
     private void FixedUpdate()
     {

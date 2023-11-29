@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class ShootingState : EnemyState
 {
-    bool shootingOn = false;
-
     public ShootingState(Enemy enemy , EnemyStateMachine enemyStateMachine): base (enemy , enemyStateMachine)
     {
 
     }
-
 
     public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
     {
@@ -30,26 +27,10 @@ public class ShootingState : EnemyState
     public override void UpdateState()
     {
         base.UpdateState();
-
-        //enemy should stay in its shooting range near the player
-        //if(shootingOn)
-        //  shoot()
-        //else
-        //  //enemy.navMeshAgent.destination = enemy.playerTarget.transform.position;
     }
 
     public override void FixedUpdateState()
     {
         base.FixedUpdateState();
-    }
-
-    public override void OnCollisionEnter(Collider other)
-    {
-        base.OnCollisionEnter(other);
-    }
-
-    public override void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
     }
 }
