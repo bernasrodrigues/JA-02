@@ -26,18 +26,15 @@ public class MapGenerator : MonoBehaviour
     public Tuple<int,int>[] MapPositions { get => mapPositions; set => this.mapPositions = value; }
     // Start is called before the first frame update
     void Start()
-    {
-        
+    {   
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
-    public void OnAwake(){
-        
+    public void OnAwake(){   
     }
 
     public void  Initialize(int level){

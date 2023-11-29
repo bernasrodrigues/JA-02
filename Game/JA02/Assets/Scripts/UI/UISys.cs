@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class UISys : Sys
 {
@@ -48,5 +49,10 @@ public class UISys : Sys
         foreach(GameObject window in windows){
             window.SetActive(false);
         }
+    }
+
+    public void StartGame(){
+        CloseAll();
+        characterInfo.SetActive(true);
     }
 }

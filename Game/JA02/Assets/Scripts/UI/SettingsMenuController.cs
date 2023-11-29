@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SettingsMenuController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject mainMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,9 @@ public class SettingsMenuController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Close(){
+        UISys.instance.OpenWindow(mainMenu);
     }
 }

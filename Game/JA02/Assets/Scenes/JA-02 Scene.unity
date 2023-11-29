@@ -1973,7 +1973,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 398602065}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 929390293}
+        m_TargetAssemblyTypeName: LossScreenController, Assembly-CSharp
+        m_MethodName: GoToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &398602065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2441,7 +2453,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 511204843}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1644301302}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: OpenSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &511204843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3258,7 +3282,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 617452821}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1427007605}
+        m_TargetAssemblyTypeName: WinScreenController, Assembly-CSharp
+        m_MethodName: GoToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &617452821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4167,7 +4203,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 839798499}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1427007605}
+        m_TargetAssemblyTypeName: WinScreenController, Assembly-CSharp
+        m_MethodName: NextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &839798499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4401,7 +4449,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 879929483}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1644301302}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: OpenCredits
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &879929483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4636,6 +4696,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 929390292}
+  - component: {fileID: 929390293}
   m_Layer: 0
   m_Name: LossScreen
   m_TagString: Untagged
@@ -4667,6 +4728,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &929390293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929390291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e13139b65c64e7b4799c424ac91e2a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenu: {fileID: 1644301300}
 --- !u!1 &986889947
 GameObject:
   m_ObjectHideFlags: 0
@@ -5232,7 +5306,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1091296297}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1644301302}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1091296297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5280,6 +5366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1099555002}
+  - component: {fileID: 1099555003}
   m_Layer: 0
   m_Name: Credits
   m_TagString: Untagged
@@ -5314,6 +5401,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1099555003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099555001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b05888718a528904c8ad282a7db0365a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenu: {fileID: 1644301300}
 --- !u!1 &1111396927
 GameObject:
   m_ObjectHideFlags: 0
@@ -5397,7 +5497,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1111396930}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1099555003}
+        m_TargetAssemblyTypeName: CreditsController, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1111396930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5449,7 +5561,7 @@ GameObject:
   - component: {fileID: 1151845758}
   - component: {fileID: 1151845757}
   m_Layer: 0
-  m_Name: Button
+  m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5519,7 +5631,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1151845758}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2033520817}
+        m_TargetAssemblyTypeName: EndCreditsController, Assembly-CSharp
+        m_MethodName: GoToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1151845758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5567,6 +5691,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1185589852}
+  - component: {fileID: 1185589853}
   m_Layer: 0
   m_Name: SettingsMenu
   m_TagString: Untagged
@@ -5599,6 +5724,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1185589853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185589851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 458891c9bdd82494e9655ed60fb9621f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenu: {fileID: 1644301300}
 --- !u!1 &1224742137
 GameObject:
   m_ObjectHideFlags: 0
@@ -5894,7 +6032,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1234389838}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1644301302}
+        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1234389838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6499,7 +6649,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1420395557}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1185589853}
+        m_TargetAssemblyTypeName: SettingsMenuController, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1420395557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6547,6 +6709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1427007604}
+  - component: {fileID: 1427007605}
   m_Layer: 0
   m_Name: WinScreen
   m_TagString: Untagged
@@ -6578,6 +6741,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1427007605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427007603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 310900379ac268847ae0ef667aa4ff5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenu: {fileID: 1644301300}
 --- !u!1 &1442085925
 GameObject:
   m_ObjectHideFlags: 0
@@ -6796,7 +6972,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1473143201}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 929390293}
+        m_TargetAssemblyTypeName: LossScreenController, Assembly-CSharp
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1473143201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7213,13 +7401,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1644301301}
+  - component: {fileID: 1644301302}
   m_Layer: 0
   m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1644301301
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7246,6 +7435,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1644301302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644301300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513e3c3e6cdda7343a25c60aae9c1aa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creditsScreen: {fileID: 1099555001}
+  settingsScreen: {fileID: 1185589851}
 --- !u!1 &1670721533
 GameObject:
   m_ObjectHideFlags: 0
@@ -8240,7 +8443,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2139902626}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8513,13 +8716,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2033520816}
+  - component: {fileID: 2033520817}
   m_Layer: 0
   m_Name: EndCredits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2033520816
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8538,13 +8742,26 @@ RectTransform:
   - {fileID: 2044099582}
   - {fileID: 1151845756}
   m_Father: {fileID: 2139902626}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2033520817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033520815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38a1586f0c25a4d4abe85cdd4b24885d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenu: {fileID: 1644301300}
 --- !u!1 &2044099581
 GameObject:
   m_ObjectHideFlags: 0
@@ -9108,8 +9325,8 @@ RectTransform:
   - {fileID: 1099555002}
   - {fileID: 1427007604}
   - {fileID: 929390292}
-  - {fileID: 1993569462}
   - {fileID: 2033520816}
+  - {fileID: 1993569462}
   m_Father: {fileID: 439514069}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

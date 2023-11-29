@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LossScreenController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject mainMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -11,8 +13,11 @@ public class LossScreenController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    public void GoToMainMenu(){
+        UISys.instance.OpenWindow(mainMenu);
+    }
+
+    public void Restart(){
+        GameSystem.instance.Restart();
     }
 }

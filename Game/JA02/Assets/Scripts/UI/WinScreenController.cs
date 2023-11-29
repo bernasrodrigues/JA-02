@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreditsController : MonoBehaviour
+public class WinScreenController : MonoBehaviour
 {
     [SerializeField]
     private GameObject mainMenu;
@@ -18,7 +18,11 @@ public class CreditsController : MonoBehaviour
         
     }
 
-    public void Close(){
+    public void GoToMainMenu(){
         UISys.instance.OpenWindow(mainMenu);
+    }
+
+    public void NextLevel(){
+        GameSystem.instance.NextLevel();
     }
 }

@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreditsController : MonoBehaviour
+public class LossScreenController1 : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject mainMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +14,5 @@ public class CreditsController : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void Close(){
-        UISys.instance.OpenWindow(mainMenu);
     }
 }
