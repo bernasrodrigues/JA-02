@@ -78,7 +78,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // Set commands here and execute them at the fixed update
+
+        if (equipedWeapon.gameObject.activeSelf)  // don't check inputs while the weapon is inactive (when switching weapons)
+            equipedWeapon.CheckInput();    // handle equiped weapon
     }
 
 
@@ -118,16 +120,6 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-
-
-
-        if (equipedWeapon.gameObject.activeSelf)  // don't check inputs while the weapon is inactive (when switching weapons)
-            equipedWeapon.CheckInput();    // handle equiped weapon
-
-
-
-
-
 
 
 

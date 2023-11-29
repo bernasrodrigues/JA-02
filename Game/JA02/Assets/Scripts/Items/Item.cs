@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 [System.Serializable]
@@ -8,6 +9,7 @@ public abstract class Item
 {
     public Rarity rarity = Rarity.Common;
     public ItemType type;
+    public static float GLOBAL_UPDATE_TIME = 0.5f;
 
     public abstract string GetName();
     public virtual void Update(Character player, int stacks)
@@ -114,7 +116,7 @@ public class ActiveItem : Item
     }
     public override void Update(Character player, int stacks)
     {
-        itemCd -=1;
+        itemCd -= GLOBAL_UPDATE_TIME;
     }
     public override void OnUse(Character player)
     {
@@ -170,3 +172,50 @@ public class MaxHpItem : Item
         return stat + 0.08f * stacks * player.baseMaxHP;
     }
 }
+
+// Item that does damage to an enemy every x seconds
+public class ThunderItem : Item
+{
+    public ThunderItem()
+    {
+        rarity = Rarity.Legendary;
+        type = ItemType.Damage;
+    }
+
+    float itemCd = 10f;
+    float radius = 20f;
+    public override string GetName()
+    {
+        return "Thunder Item";
+    }
+    public override void Update(Character player, int stacks)
+    {
+        itemCd -= GLOBAL_UPDATE_TIME;
+        if (itemCd <= 0f) 
+        {
+            Character character;
+            if ((character = SearchForEnemy(player, stacks)) != null) 
+            {
+                itemCd = (float) (10 * (1 - math.pow(0.1, stacks - 1)));
+                character.Hit(30 + 10 * stacks);
+            }
+        }
+    }
+
+    private Character SearchForEnemy(Character player, int stacks)
+    {
+        Character character = null;
+        // TODO: colocar label dos inimigos
+        foreach (Collider collider in Physics.OverlapSphere(player.transform.position, radius + (stacks - 1) * 2)) 
+        {
+            if (collider.tag == "Enemy") 
+            {
+                character = collider.GetComponent<Character>();
+                break;
+            }
+        }
+        return character;
+    }
+}
+
+
