@@ -7,12 +7,14 @@ public class Enemy_i2 : Enemy
     //easy to hit, slow movement, shoots once at player when in range, slow recharge
 
     public float attackRange=10f;
+    public Weapon enemyWeapon;
+    public float shootingInterval=1f;
 
     protected override void Awake()
     {
         base.Awake();
 
-        shootingState = new ShootingState(this, stateMachine);
+        shootingState = new ShootingState(this, stateMachine, enemyWeapon, shootingInterval);
     }
 
     protected override void Update()

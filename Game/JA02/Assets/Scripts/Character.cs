@@ -23,7 +23,7 @@ public class Character : MonoBehaviour
     // NOTE: ao dar override chamar base.Update()
     protected virtual void Update()
     {
-        // TODO: status effects vão aqui
+        // TODO: status effects vï¿½o aqui
     }
 
     // do damage to the character
@@ -50,5 +50,9 @@ public class Character : MonoBehaviour
     public virtual void Die() 
     {
         Debug.Log("dead");
+    }
+
+    public Vector3 GetPosition(){
+        return this.transform.position;
     }
 }

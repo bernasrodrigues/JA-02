@@ -69,8 +69,4 @@ public class Player : Character
         }
         // apply status effects here
     }
-
-    public Vector3 GetPosition(){
-        return this.transform.position;
-    }
 }

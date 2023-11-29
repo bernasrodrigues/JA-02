@@ -127,6 +127,29 @@ public abstract class Weapon : MonoBehaviour
         }
     }
 
+    public void EnemyShoot(Vector3 direction)
+    {
+        readyToShoot = true;
+
+        for (int i = 1; i <= BulletsPerShoot; i++)
+        {
+            direction = ApplySpread(direction);         // apply spread to the direction
+            GameObject bullet = InstantiateBullet();
+            bullet.transform.forward = direction.normalized;                                                   // bullet pointing forward
+            bullet.GetComponent<Rigidbody>().AddForce(direction.normalized * bulletSpeed, ForceMode.Impulse);
+            //bullet.GetComponent<Rigidbody>().AddForce(firstPersonCamera.transform.up * upwardForce, ForceMode.Impulse);   // for grenades
+        }
+
+        bulletsLeft--;
+        launchEvent();
+        if (shootCooldown)
+        {
+            //Debug.Log("Shot colldown");
+            Invoke("ResetShot", FireRate);
+            shootCooldown = false;
+        }
+    }
+
     /*
         private void Update() {
             // ray to the middle of the screen (where the camera is pointing)
