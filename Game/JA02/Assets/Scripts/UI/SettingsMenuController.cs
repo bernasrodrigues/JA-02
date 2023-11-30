@@ -22,7 +22,13 @@ public class SettingsMenuController : MonoBehaviour
     }
 
     public void Close(){
-        UISys.instance.OpenWindow(mainMenu);
+        if(!GameSystem.instance.InGame){
+            UISys.instance.OpenWindow(mainMenu);
+        }
+        else{
+            UISys.instance.CloseAll();
+        }
+        
     }
 
     public void ChangeVolume(float value){

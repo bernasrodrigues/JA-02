@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CharacterInfoController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject settingsScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,9 @@ public class CharacterInfoController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OpenSettings(){
+        UISys.instance.OpenWindow(settingsScreen);
     }
 }

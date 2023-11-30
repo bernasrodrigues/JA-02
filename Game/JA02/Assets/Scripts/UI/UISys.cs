@@ -43,6 +43,7 @@ public class UISys : Sys
     public void OpenWindow(GameObject windowToOpen){
         if(windowToOpen == windows[0]){
             PlayerSys.instance.GoToMainMenuView();
+            characterInfo.SetActive(false);
         }
         CloseAll();
         windowToOpen.SetActive(true);
