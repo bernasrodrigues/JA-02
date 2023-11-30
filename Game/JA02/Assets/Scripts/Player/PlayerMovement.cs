@@ -142,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
         playerCamera.transform.LookAt(transform.position + new Vector3(-offsetVector.y * 2, 0, offsetVector.x * 2));
         **/
         if(GameSystem.instance.InGame){
-            playerCamera.GetComponent<CameraController>().Follow(transform.position + cameraOffset, Time.deltaTime * 7.4f);
+            playerCamera.GetComponent<CameraController>().Follow(transform.position, Time.deltaTime * 7.4f);
         }
 
         //Aim target position and rotation        

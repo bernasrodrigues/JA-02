@@ -15,6 +15,18 @@ public class CameraController : MonoBehaviour
     private Quaternion inGameRotation;
     [SerializeField]
     private float transitionDuration = 2.0f;
+    [SerializeField]
+    private float cameraHeight;
+    [SerializeField]
+    private float maxCamHeight;
+    [SerializeField]
+    private float minCamHeight;
+    [SerializeField]
+    private float camZoomFactor;
+
+
+    private Vector3 cameraOffset;
+
     void Start()
     {
         transform.position = mainMenuPosition;
@@ -26,6 +38,21 @@ public class CameraController : MonoBehaviour
     { 
     }
 
+    void FixedUpdate(){
+
+        // Check if left Shift is being pressed
+        if (Input.GetKey(KeyCode.LeftShift) && cameraHeight<maxCamHeight)
+        {
+            cameraHeight+=camZoomFactor;
+        }
+
+        // Check if left Control is being pressed
+        if (Input.GetKey(KeyCode.LeftControl) && cameraHeight>minCamHeight)
+        {
+            cameraHeight-=camZoomFactor;
+        }
+    }
+
     public void GoToMainMenuView(){
         StartCoroutine(SmoothTransitionTo(mainMenuPosition, mainMenuRotation));
     }
@@ -35,7 +62,8 @@ public class CameraController : MonoBehaviour
     }
 
     public void Follow(Vector3 playerPosition, float lerpTime){
-        transform.position = Vector3.Lerp(transform.position, playerPosition, lerpTime);
+        cameraOffset = new Vector3(0, cameraHeight, 0);
+        transform.position = Vector3.Lerp(transform.position, playerPosition+cameraOffset, lerpTime);
     }
 
     private IEnumerator SmoothTransitionTo(Vector3 targetPos, Quaternion targetRot)

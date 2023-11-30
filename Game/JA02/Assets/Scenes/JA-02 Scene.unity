@@ -1268,6 +1268,10 @@ MonoBehaviour:
   inGamePosition: {x: 0, y: 20, z: 0}
   inGameRotation: {x: 0.47771502, y: -0.47771502, z: 0.5213332, w: 0.5213332}
   transitionDuration: 2
+  cameraHeight: 20
+  maxCamHeight: 200
+  minCamHeight: 10
+  camZoomFactor: 1
 --- !u!1 &340176618
 GameObject:
   m_ObjectHideFlags: 0
@@ -6835,6 +6839,7 @@ MonoBehaviour:
   - {fileID: 899777380}
   - {fileID: 2007675510}
   - {fileID: 1368628649}
+  inGame: 0
 --- !u!1 &1467722620
 GameObject:
   m_ObjectHideFlags: 0
