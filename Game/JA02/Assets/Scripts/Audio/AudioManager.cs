@@ -9,10 +9,15 @@ public class AudioManager : MonoBehaviour
     private long counter = 0;
 
     [SerializeField]
+    private float volumeSettingFactor = 0.5f;
+
+    [SerializeField]
     private Dictionary<long, Coroutine> activeCoroutines = new Dictionary<long, Coroutine>();
 
     [SerializeField]
     GameObject newGO;
+
+    public float VolumeSettingFactor{ get => volumeSettingFactor; set => this.volumeSettingFactor = value; }
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +54,7 @@ public class AudioManager : MonoBehaviour
         newGO.GetComponent<AudioSource>().clip = aud;
 
 
-        newGO.GetComponent<AudioSource>().volume = volume;
+        newGO.GetComponent<AudioSource>().volume = volume * volumeSettingFactor;
         newGO.GetComponent<AudioSource>().pitch = pitch;
         newGO.GetComponent<AudioSource>().priority = priority;
         newGO.GetComponent<AudioSource>().panStereo = stereoPan;
