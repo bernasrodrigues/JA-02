@@ -41,6 +41,7 @@ public class StructureBuilder : MonoBehaviour
     }
 
     public void InitializeScenario(){
+        //print(MapSys.instance.GetAvaliableMapPositions().Length);
         float numberOfbuildings = scenarioBuildingsPercentage * MapSys.instance.GetAvaliableMapPositions().Length;
         Tuple<int,int>[] scenarioPositions = RNGesus.instance.GetRandomSubset(MapSys.instance.GetAvaliableMapPositions(), (int)numberOfbuildings);
         foreach(Tuple<int,int> sPosition in scenarioPositions){
@@ -48,9 +49,11 @@ public class StructureBuilder : MonoBehaviour
                 InitializeBuilding(regularScenario[RNGesus.instance.GetRandomIntBetween(0, regularScenario.Length-1)], sPosition);
             }
         }
+        MapSys.instance.SetScenarioPositions(scenarioPositions);
     }
 
     public void InitializeItemsOrConsumables(){
+        //print(MapSys.instance.GetAvaliableMapPositions().Length);
         float numberOfbuildings = itemOrConsumableBuildingsPercentage * MapSys.instance.GetAvaliableMapPositions().Length;
         Tuple<int,int>[] itemOrConsumablePositions = RNGesus.instance.GetRandomSubset(MapSys.instance.GetAvaliableMapPositions(), (int)numberOfbuildings);
         foreach(Tuple<int,int> icPosition in itemOrConsumablePositions){
