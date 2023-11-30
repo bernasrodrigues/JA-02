@@ -45,7 +45,6 @@ public class MapState : MonoBehaviour
         avaliablePositions = avaliablePositions.Where(e => e != chipKeyTile).ToArray();
         if(scenarioPositions != null){
             avaliablePositions = avaliablePositions.Except(scenarioPositions).ToArray();
-            print(scenarioPositions.Length);
         }
         return avaliablePositions;
     }

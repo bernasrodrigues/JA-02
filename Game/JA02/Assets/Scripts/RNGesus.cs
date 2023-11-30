@@ -45,4 +45,15 @@ public class RNGesus : MonoBehaviour
 
         return smallerArray;
     }
+
+    public T PickOne<T>(T[] objects)
+    {
+        if (objects == null || objects.Length == 0)
+        {
+            throw new ArgumentException("The array of objects is null or empty.");
+        }
+
+        int randomIndex = r.Next(objects.Length);
+        return objects[randomIndex];
+    }
 }

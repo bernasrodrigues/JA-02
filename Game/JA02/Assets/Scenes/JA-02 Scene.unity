@@ -1263,10 +1263,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f9047e09ad0a348b7d0b7649af35b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuPosition: {x: -150, y: 3, z: 150}
-  mainMenuRotation: {x: -0.1359306, y: 0.16639188, z: 0.019945115, w: -0.9764419}
+  mainMenuPosition: {x: -250, y: 30, z: 250}
+  mainMenuRotation: {x: 0.06698731, y: 0.93301266, z: -0.25000003, w: 0.25000003}
   inGamePosition: {x: 0, y: 20, z: 0}
-  inGameRotation: {x: 0.67559016, y: 0, z: 0, w: 0.7372773}
+  inGameRotation: {x: 0.47771502, y: -0.47771502, z: 0.5213332, w: 0.5213332}
   transitionDuration: 2
 --- !u!1 &340176618
 GameObject:

@@ -17,7 +17,8 @@ public class CameraController : MonoBehaviour
     private float transitionDuration = 2.0f;
     void Start()
     {
-        GoToMainMenuView();
+        transform.position = mainMenuPosition;
+        transform.rotation = mainMenuRotation;
     }
 
     // Update is called once per frame
@@ -31,6 +32,10 @@ public class CameraController : MonoBehaviour
 
     public void GoToGameView(){
         StartCoroutine(SmoothTransitionTo(inGamePosition, inGameRotation));
+    }
+
+    public void Follow(Vector3 playerPosition, float lerpTime){
+        transform.position = Vector3.Lerp(transform.position, playerPosition, lerpTime);
     }
 
     private IEnumerator SmoothTransitionTo(Vector3 targetPos, Quaternion targetRot)

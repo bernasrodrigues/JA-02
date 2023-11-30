@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         //Setup camera offset
-        Vector3 cameraOffset = Vector3.zero;
+        /**Vector3 cameraOffset = Vector3.zero;
         if (cameraDirection == CameraDirection.x)
         {
             cameraOffset = new Vector3(cameraDistance, cameraHeight, 0);
@@ -103,7 +103,8 @@ public class PlayerMovement : MonoBehaviour
         else if (cameraDirection == CameraDirection.z)
         {
             cameraOffset = new Vector3(0, cameraHeight, cameraDistance);
-        }
+        } **/
+        Vector3 cameraOffset = new Vector3(0, cameraHeight, 0);
 
         if (grounded)
         {
@@ -132,15 +133,17 @@ public class PlayerMovement : MonoBehaviour
         grounded = false;
 
         //Mouse cursor offset effect
-        playerPosOnScreen = playerCamera.WorldToViewportPoint(transform.position);
+        /**playerPosOnScreen = playerCamera.WorldToViewportPoint(transform.position);
         cursorPosition = playerCamera.ScreenToViewportPoint(Input.mousePosition);
-        offsetVector = cursorPosition - playerPosOnScreen;
+        offsetVector = cursorPosition - playerPosOnScreen; **/
 
         //Camera follow
-        playerCamera.transform.position = Vector3.Lerp(playerCamera.transform.position, transform.position + cameraOffset, Time.deltaTime * 7.4f);
+        /** playerCamera.transform.position = Vector3.Lerp(playerCamera.transform.position, transform.position + cameraOffset, Time.deltaTime * 7.4f);
         playerCamera.transform.LookAt(transform.position + new Vector3(-offsetVector.y * 2, 0, offsetVector.x * 2));
-
-
+        **/
+        if(GameSystem.instance.InGame){
+            playerCamera.GetComponent<CameraController>().Follow(transform.position + cameraOffset, Time.deltaTime * 7.4f);
+        }
 
         //Aim target position and rotation        
         targetObject.transform.position = GetAimTargetPos();

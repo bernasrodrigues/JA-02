@@ -55,6 +55,7 @@ public class UISys : Sys
     }
 
     public void StartGame(){
+        GameSystem.instance.InGame = true;
         CloseAll();
         characterInfo.SetActive(true);
         PlayerSys.instance.GoToGameView();
