@@ -41,6 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4502084829608996153}
+  - component: {fileID: 8085750175499234800}
   m_Layer: 0
   m_Name: Trafficlamp2
   m_TagString: Untagged
@@ -64,6 +65,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &8085750175499234800
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9125779279081476681}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -11.753828, y: 0.7371633, z: -15.322605}
+  m_Size: 6.2291493
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.15641193
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 4039501033924372915}
+  m_Enabled: 1
 --- !u!1001 &3444872631453496631
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -155,6 +175,12 @@ BoxCollider:
 --- !u!4 &2901474938214765276 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 54ca2327acea4744f9eb19a0e972ed63,
+    type: 3}
+  m_PrefabInstance: {fileID: 3444872631453496631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4039501033924372915 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 54ca2327acea4744f9eb19a0e972ed63,
     type: 3}
   m_PrefabInstance: {fileID: 3444872631453496631}
   m_PrefabAsset: {fileID: 0}

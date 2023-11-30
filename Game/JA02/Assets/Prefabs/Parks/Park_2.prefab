@@ -41,6 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2869590397122994171}
+  - component: {fileID: 1241582152111369178}
   m_Layer: 0
   m_Name: Park_2
   m_TagString: Untagged
@@ -64,6 +65,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &1241582152111369178
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6588180436814891931}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.0000019073486, y: 0.65344924, z: -0.0000019073486}
+  m_Size: 20.121212
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.28617293
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1657144540028594960}
+  m_Enabled: 1
 --- !u!1001 &89730646586652564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -301,3 +321,9 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.070277005, y: 0.0049032387, z: 0.016500296}
   m_Center: {x: 0.064861365, y: -0.09754867, z: 0.0070171356}
+--- !u!23 &1657144540028594960 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 682eaf178f0110343aee9e9f2add27c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 89730646586652564}
+  m_PrefabAsset: {fileID: 0}

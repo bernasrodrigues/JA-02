@@ -78,9 +78,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-
-        if (equipedWeapon.gameObject.activeSelf)  // don't check inputs while the weapon is inactive (when switching weapons)
-            equipedWeapon.CheckInput();    // handle equiped weapon
+        if (equipedWeapon != null)
+            if (equipedWeapon.gameObject.activeSelf)  // don't check inputs while the weapon is inactive (when switching weapons)
+                equipedWeapon.CheckInput();    // handle equiped weapon
     }
 
 

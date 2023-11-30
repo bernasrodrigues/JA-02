@@ -10,7 +10,7 @@ public class PlayerSys : Sys
 
     [SerializeField]
     private GameObject camera;
-    
+
     protected override void OnAwake()
     {
         instance = this;

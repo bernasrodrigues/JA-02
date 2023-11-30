@@ -973,6 +973,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8727317211834393007}
+  - component: {fileID: 460345011127747102}
+  - component: {fileID: 2322743276821657414}
   m_Layer: 0
   m_Name: Building_Big_Corner_0_Size_3
   m_TagString: Environment
@@ -996,3 +998,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &460345011127747102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8727317211834393006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1af49c2053c1424184023fe9c4a703c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights: []
+  on: 0
+--- !u!205 &2322743276821657414
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8727317211834393006}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.0890789, y: 9.912506, z: -5.0403824}
+  m_Size: 26.361511
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.28617293
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 8727317211584634093}
+  m_Enabled: 1

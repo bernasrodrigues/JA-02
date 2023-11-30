@@ -41,6 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1021464175720698500}
+  - component: {fileID: 1319557555194897360}
   m_Layer: 0
   m_Name: Trafficsignal3
   m_TagString: Untagged
@@ -64,6 +65,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &1319557555194897360
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3901084571347422785}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -29.035442, y: 0.8640899, z: -3.3442388}
+  m_Size: 4.786009
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.15457626
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7005531208539206611}
+  m_Enabled: 1
 --- !u!1001 &8572936304256806743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,6 +153,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82ce93326e8b4514e8151fc608817830, type: 3}
+--- !u!23 &7005531208539206611 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 82ce93326e8b4514e8151fc608817830,
+    type: 3}
+  m_PrefabInstance: {fileID: 8572936304256806743}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8175028763012860092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 82ce93326e8b4514e8151fc608817830,

@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4562716375312984706}
+  - component: {fileID: 3122887601436551486}
+  - component: {fileID: 2652305323259316805}
   m_Layer: 0
   m_Name: streetlamp1
   m_TagString: Untagged
@@ -32,6 +34,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3122887601436551486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034601572640600238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1af49c2053c1424184023fe9c4a703c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights: []
+  on: 0
+--- !u!205 &2652305323259316805
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034601572640600238}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.0021070838, y: 0.3942964, z: -0.16941321}
+  m_Size: 5.58533
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.15825841
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 4066490933786492990}
+  m_Enabled: 1
 --- !u!1 &4263944409838900690
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +301,12 @@ BoxCollider:
 --- !u!4 &2892506306721037137 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a608f5796ceedb7499b942445efb60a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 3435831262476131514}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4066490933786492990 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: a608f5796ceedb7499b942445efb60a3,
     type: 3}
   m_PrefabInstance: {fileID: 3435831262476131514}
   m_PrefabAsset: {fileID: 0}

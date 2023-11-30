@@ -390,6 +390,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2869590397122994171}
+  - component: {fileID: 8223499006620780333}
+  - component: {fileID: 7086317815174937948}
   m_Layer: 0
   m_Name: Building_Big_0_Size_1
   m_TagString: Environment
@@ -413,6 +415,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &8223499006620780333
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6588180436814891931}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.14586735, y: 5.7818866, z: -0.023005486}
+  m_Size: 26.13787
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.28617293
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 8886690150970477136}
+  m_Enabled: 1
+--- !u!114 &7086317815174937948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6588180436814891931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1af49c2053c1424184023fe9c4a703c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights: []
+  on: 0
 --- !u!1 &6905622027105798665
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,6 +710,12 @@ BoxCollider:
 --- !u!4 &7717183250381222207 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6b9faa4395927c1439a162cec55b5465,
+    type: 3}
+  m_PrefabInstance: {fileID: 7823394917164275412}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8886690150970477136 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 6b9faa4395927c1439a162cec55b5465,
     type: 3}
   m_PrefabInstance: {fileID: 7823394917164275412}
   m_PrefabAsset: {fileID: 0}
