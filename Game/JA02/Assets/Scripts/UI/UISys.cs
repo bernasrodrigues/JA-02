@@ -41,6 +41,9 @@ public class UISys : Sys
     }
 
     public void OpenWindow(GameObject windowToOpen){
+        if(windowToOpen == windows[0]){
+            PlayerSys.instance.GoToMainMenuView();
+        }
         CloseAll();
         windowToOpen.SetActive(true);
     }
@@ -54,5 +57,6 @@ public class UISys : Sys
     public void StartGame(){
         CloseAll();
         characterInfo.SetActive(true);
+        PlayerSys.instance.GoToGameView();
     }
 }
