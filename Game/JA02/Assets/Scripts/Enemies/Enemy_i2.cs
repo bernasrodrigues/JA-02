@@ -28,12 +28,12 @@ public class Enemy_i2 : Enemy
     {
         base.Update();
 
-        var targetPosition = Player.instance.GetPosition();
+        var targetPosition = PlayerMovement.Instance.transform.position;
         targetPosition.y = transform.position.y;
 
         transform.LookAt(targetPosition);
 
-        if(UnityEngine.Vector3.Distance(transform.position, Player.instance.GetPosition()) < attackRange){
+        if(UnityEngine.Vector3.Distance(transform.position, PlayerMovement.Instance.transform.position) < attackRange){
             stateMachine.ChangeState(shootingState);
         }
         else if(stateMachine.currentEnemyState != chaseState){

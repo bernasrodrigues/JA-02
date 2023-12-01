@@ -37,7 +37,7 @@ public class ShootingState : EnemyState
         weaponInterval-=Time.deltaTime;
         
         if(weaponInterval<0){
-            enemyWeapon.EnemyShoot(Player.instance.GetPosition() - enemy.GetPosition());
+            enemyWeapon.EnemyShoot(PlayerMovement.Instance.transform.position - enemy.GetPosition());
             weaponInterval=startingWeaponInterval;
         }
     }
