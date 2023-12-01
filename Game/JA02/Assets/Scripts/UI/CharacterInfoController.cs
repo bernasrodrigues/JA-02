@@ -32,7 +32,7 @@ public class CharacterInfoController : MonoBehaviour
     }
 
     public void UpdateHealth(int healthPercent){
-        float rightValue = 880 - (healthPercent*3);
+        float rightValue = (healthPercent*3) - 880;
         healthFill.rectTransform.offsetMax = new Vector2(rightValue, healthFill.rectTransform.offsetMax.y);
     }
 

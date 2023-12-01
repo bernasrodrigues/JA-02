@@ -11129,7 +11129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1195968043
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17222,7 +17222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingsScreen: {fileID: 1185589851}
-  healthFill: {fileID: 0}
+  healthFill: {fileID: 996848129}
   ammoDisplay: {fileID: 0}
 --- !u!222 &1993569464
 CanvasRenderer:

@@ -19,12 +19,25 @@ public class Player : Character
         base.Start();
 
         playerMovement = GetComponent<PlayerMovement>();
+        UISys.instance.UpdateHealth((int)(hp / maxHP * 100.0f));
         StartCoroutine(CallItemUpdate());
     }
 
     // Update is called once per frame
     protected override void Update()
     {    }
+
+    public override void Heal(float heal)
+    {
+        base.Heal(heal);
+        UISys.instance.UpdateHealth((int)(hp / maxHP * 100.0f));
+    }
+
+    public override void Hit(float damage)
+    {
+        base.Hit(damage);
+        UISys.instance.UpdateHealth((int)(hp / maxHP * 100.0f));
+    }
 
     IEnumerator CallItemUpdate()
     {
@@ -71,6 +84,7 @@ public class Player : Character
         }
         playerMovement.speed = speed;
         transform.localScale = new Vector3(scale,scale, scale);
+        UISys.instance.UpdateHealth((int)(hp / maxHP * 100.0f));
         // apply status effects here
     }
 }
