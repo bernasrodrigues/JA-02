@@ -14,6 +14,8 @@ public class ItemGenerator
         new SpeedItem(),
         new MaxHpItem(),
         new ThunderItem(),
+        new ScaleDownItem(),
+        new ScaleUpItem(),
     };
     // items separados por raridade
     private Dictionary<Item.Rarity, List<Item>> itemsByRarity = new Dictionary<Item.Rarity, List<Item>>();
@@ -29,7 +31,7 @@ public class ItemGenerator
     public Dictionary<Item.Rarity, float> rarityChances = new Dictionary<Item.Rarity, float>()
     {
         { Item.Rarity.Common, 50 },
-        { Item.Rarity.Rare, 30 },
+        { Item.Rarity.Rare, 40 },
         { Item.Rarity.Legendary, 10 },
     };
 

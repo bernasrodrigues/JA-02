@@ -149,7 +149,7 @@ public class SpeedItem : Item
 
     public override float OnRecalculateStat(Character player, CharacterStat statModified, float stat, int stacks)
     {
-        if (statModified.HasFlag(CharacterStat.Speed)) { return stat; }
+        if (!statModified.HasFlag(CharacterStat.Speed)) { return stat; }
 
         return stat + 0.20f * stacks * player.baseSpeed;
     }
@@ -171,7 +171,7 @@ public class MaxHpItem : Item
 
     public override float OnRecalculateStat(Character player, CharacterStat statModified, float stat, int stacks)
     {
-        if (statModified.HasFlag(CharacterStat.MaxHp)) { return stat; }
+        if (!statModified.HasFlag(CharacterStat.MaxHp)) { return stat; }
 
         return stat + 0.08f * stacks * player.baseMaxHP;
     }
