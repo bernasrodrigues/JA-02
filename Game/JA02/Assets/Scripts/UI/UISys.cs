@@ -12,7 +12,7 @@ public class UISys : Sys
     [SerializeField]
     private GameObject[] windows;
     [SerializeField]
-    private GameObject characterInfo;
+    private CharacterInfoController characterInfo;
     [SerializeField]
     private GameObject startingScene;
 
@@ -53,7 +53,7 @@ public class UISys : Sys
             PlayerSys.instance.GoToMainMenuView();
             Data.gameState = Data.GameState.MainMenu;
             GameSystem.instance.InGame = false;
-            characterInfo.SetActive(false);
+            characterInfo.gameObject.SetActive(false);
         }
         CloseAll();
         windowToOpen.SetActive(true);
@@ -69,7 +69,7 @@ public class UISys : Sys
         GameSystem.instance.InGame = true;
         Data.gameState = Data.GameState.InGame;
         CloseAll();
-        characterInfo.SetActive(true);
+        characterInfo.gameObject.SetActive(true);
         PlayerSys.instance.GoToGameView();
     }
 

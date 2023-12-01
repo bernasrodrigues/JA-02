@@ -3599,7 +3599,10 @@ MonoBehaviour:
   - {fileID: 2033520815}
   - {fileID: 929390291}
   - {fileID: 1427007603}
-  characterInfo: {fileID: 1993569461}
+  characterInfo: {fileID: 1993569463}
+  startingScene: {fileID: 0}
+  clickAudios: []
+  exitAudio: {fileID: 0}
 --- !u!1 &445821469
 GameObject:
   m_ObjectHideFlags: 0
@@ -3652,6 +3655,9 @@ MonoBehaviour:
   - {fileID: 1278909144}
   - {fileID: 1977941334}
   characterInfo: {fileID: 1195968042}
+  startingScene: {fileID: 0}
+  clickAudios: []
+  exitAudio: {fileID: 0}
 --- !u!1 &481829367
 GameObject:
   m_ObjectHideFlags: 0
@@ -17207,6 +17213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingsScreen: {fileID: 1185589851}
+  healthFill: {fileID: 0}
+  ammoDisplay: {fileID: 0}
 --- !u!222 &1993569464
 CanvasRenderer:
   m_ObjectHideFlags: 0
