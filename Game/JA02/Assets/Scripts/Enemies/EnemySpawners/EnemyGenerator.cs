@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyGenerator : MonoBehaviour
 {
     // Start is called before the first frame update
-    private float spawnTimer;
+    private float spawnTimer = 10f;
     public static float spawnSpeed = 1f;
     public List<GameObject> enemiesToSpawn;
     public bool isActivated = false;
@@ -39,7 +39,7 @@ public class EnemyGenerator : MonoBehaviour
 
     public void Spawn()
     {
-        GameObject gob = Instantiate(GetRandomEnemiesUsingRarity());
+        GameObject gob = Instantiate(GetRandomEnemiesUsingRarity(), transform);
         spawnTimer = gob.GetComponent<Enemy>().spawnTimer / spawnSpeed;
     }
 
@@ -82,7 +82,8 @@ public class EnemyGenerator : MonoBehaviour
     {
         if (other.tag == "PlayerSpawner")
         {
-            isActivated = true;   
+            isActivated = true;  
+            spawnTimer = RNGesus.instance.GetRandomIntBetween((int) (20.0f / spawnSpeed), (int) (45.0f / spawnSpeed));
         }
     }
     public void OnTriggerExit(Collider other)

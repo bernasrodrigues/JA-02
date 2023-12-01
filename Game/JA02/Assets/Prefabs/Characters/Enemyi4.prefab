@@ -89,10 +89,10 @@ MonoBehaviour:
     type: 3}
   navMeshAgent: {fileID: -8761064400123478552}
   rarity: 2
+  spawnTimer: 30
   damage: 5
   idleTime: 1
   startingIdleTime: 1
-  spawnTimer: 20
 --- !u!195 &-8761064400123478552
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   playerTarget: {fileID: 0}
   navMeshAgent: {fileID: 0}
   rarity: 0
+  spawnTimer: 10
   damage: 0
   idleTime: 1
   startingIdleTime: 1

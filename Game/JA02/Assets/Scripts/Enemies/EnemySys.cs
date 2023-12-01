@@ -37,6 +37,7 @@ public class EnemySys : Sys
 
     protected override void OnUpdate()
     {
+        EnemyGenerator.spawnSpeed += Time.deltaTime / 120;
         //throw new System.NotImplementedException();
     }
 
