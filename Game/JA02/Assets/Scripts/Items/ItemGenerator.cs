@@ -13,6 +13,7 @@ public class ItemGenerator
         new ActiveItem(),
         new SpeedItem(),
         new MaxHpItem(),
+        new ThunderItem(),
     };
     // items separados por raridade
     private Dictionary<Item.Rarity, List<Item>> itemsByRarity = new Dictionary<Item.Rarity, List<Item>>();

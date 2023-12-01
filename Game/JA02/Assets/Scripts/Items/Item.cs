@@ -183,7 +183,7 @@ public class ThunderItem : Item
     }
 
     float itemCd = 10f;
-    float radius = 20f;
+    float radius = 10f;
     public override string GetName()
     {
         return "Thunder Item";
