@@ -24,6 +24,8 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private float camZoomFactor;
 
+    private float mouseScrollDeltaAvg;
+
 
     private Vector3 cameraOffset;
 
@@ -31,26 +33,35 @@ public class CameraController : MonoBehaviour
     {
         transform.position = mainMenuPosition;
         transform.rotation = mainMenuRotation;
+        mouseScrollDeltaAvg = 0;
     }
 
     // Update is called once per frame
     void Update()
-    { 
+    {
+        mouseScrollDeltaAvg += Input.mouseScrollDelta.y;
     }
 
     void FixedUpdate(){
 
         // Check if left Shift is being pressed
-        if (Input.GetKey(KeyCode.LeftShift) && cameraHeight<maxCamHeight)
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             cameraHeight+=camZoomFactor;
         }
 
         // Check if left Control is being pressed
-        if (Input.GetKey(KeyCode.LeftControl) && cameraHeight>minCamHeight)
+        if (Input.GetKey(KeyCode.LeftControl))
         {
             cameraHeight-=camZoomFactor;
         }
+
+        cameraHeight -= mouseScrollDeltaAvg * camZoomFactor * 1.5f;
+        mouseScrollDeltaAvg = 0;
+
+        // sim, dava para fazer os dois no mesmo mas não me apetece :P
+        cameraHeight = Mathf.Max(minCamHeight, cameraHeight);
+        cameraHeight = Mathf.Min(maxCamHeight, cameraHeight);
     }
 
     public void GoToMainMenuView(){
