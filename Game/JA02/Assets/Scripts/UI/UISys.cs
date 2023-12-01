@@ -83,10 +83,10 @@ public class UISys : Sys
     }
 
     public void UpdateHealth(int healthPercent){
-        characterInfo.UpdateHealth(healthPercent);
+        characterInfo.GetComponent<CharacterInfoController>().UpdateHealth(healthPercent);
     }
 
     public void UpdateBullets(int totalBullets, int currentBullets){
-        characterInfo.UpdateBullets(totalBullets, currentBullets);
+        characterInfo.GetComponent<CharacterInfoController>().UpdateBullets(totalBullets, currentBullets);
     }
 }
