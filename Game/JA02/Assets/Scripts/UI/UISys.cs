@@ -13,6 +13,8 @@ public class UISys : Sys
     private GameObject[] windows;
     [SerializeField]
     private GameObject characterInfo;
+    [SerializeField]
+    private GameObject startingScene;
 
     [SerializeField]
     private AudioClip[] clickAudios;
