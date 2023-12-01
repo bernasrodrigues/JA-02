@@ -21,18 +21,22 @@ public class MainMenuController : MonoBehaviour
     }
 
     public void StartGame(){
-        UISys.instance.StartGame();
+        UISys.instance.ClickSound();
+        UISys.instance.StartGame();  
     }
 
     public void OpenSettings(){
+        UISys.instance.ClickSound();
         UISys.instance.OpenWindow(settingsScreen);
     }
 
     public void OpenCredits(){
+        UISys.instance.ClickSound();
         UISys.instance.OpenWindow(creditsScreen);
     }
 
     public void QuitGame(){
-        Application.Quit();
+        UISys.instance.ExitSound();
+        Application.Quit(); 
     }
 }

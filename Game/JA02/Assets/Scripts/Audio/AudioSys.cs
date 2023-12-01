@@ -41,6 +41,10 @@ public class AudioSys : Sys
         audioManager.Play(clip, volume, pitch, priority, stereoPan, spatialBlend, reverbZoneMix);
     }
 
+    public void RandomizePlay(AudioClip clip, float volume = 1, float pitch = 1, int priority = 128, int stereoPan = 0, float spatialBlend = 0, float reverbZoneMix = 1){
+        audioManager.Play(clip, volume, RNGesus.instance.VariedFloat(pitch, 0.3f), priority, stereoPan, spatialBlend, reverbZoneMix);
+    }
+
     public void ChangeVolume(float value){
         audioManager.VolumeSettingFactor = value;
     }

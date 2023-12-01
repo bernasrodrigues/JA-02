@@ -13,6 +13,12 @@ public class UISys : Sys
     private GameObject[] windows;
     [SerializeField]
     private GameObject characterInfo;
+
+    [SerializeField]
+    private AudioClip[] clickAudios;
+
+    [SerializeField]
+    private AudioClip exitAudio;
     
     protected override void OnAwake()
     {
@@ -60,5 +66,13 @@ public class UISys : Sys
         CloseAll();
         characterInfo.SetActive(true);
         PlayerSys.instance.GoToGameView();
+    }
+
+    public void ClickSound(){
+        AudioSys.instance.RandomizePlay(RNGesus.instance.PickOne(clickAudios), 0.2f);
+    }
+
+    public void ExitSound(){
+        AudioSys.instance.Play(exitAudio, 0.2f);
     }
 }

@@ -56,4 +56,8 @@ public class RNGesus : MonoBehaviour
         int randomIndex = r.Next(objects.Length);
         return objects[randomIndex];
     }
+
+    public float VariedFloat(float center, float dif){
+        return (float)((center-dif) + (r.NextDouble()*2*dif));
+    }
 }
