@@ -10,7 +10,7 @@ public class UISys : Sys
     public static UISys Get() { return instance; }
 
     [SerializeField]
-    private GameObject[] windows;
+    public GameObject[] windows;
     [SerializeField]
     private CharacterInfoController characterInfo;
     [SerializeField]
@@ -30,6 +30,7 @@ public class UISys : Sys
 
     protected override void Restart()
     {
+        CloseAll();
         //throw new System.NotImplementedException();
     }
 

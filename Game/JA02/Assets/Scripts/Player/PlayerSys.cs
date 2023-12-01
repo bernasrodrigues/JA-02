@@ -19,6 +19,9 @@ public class PlayerSys : Sys
 
     protected override void Restart()
     {
+        Player.instance.gameObject.SetActive(true);
+        Player.instance.Restart();
+        Player.instance.transform.position = new Vector3(0,1.0f,0);
         //throw new System.NotImplementedException();
     }
 

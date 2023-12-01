@@ -6,6 +6,7 @@ public class Player : Character
 {
     public static Player instance;
     public int damage;
+    public bool hasKey = false;
 
     public List<ItemList> items = new List<ItemList>();
 
@@ -15,6 +16,7 @@ public class Player : Character
     protected override void Start()
     {
         instance = this;
+        items.Clear();
         
         base.Start();
 
@@ -37,6 +39,17 @@ public class Player : Character
     {
         base.Hit(damage);
         UISys.instance.UpdateHealth((int)(hp / maxHP * 100.0f));
+    }
+
+    public override void Die()
+    {
+        gameObject.SetActive(false);
+        UISys.instance.OpenWindow(UISys.instance.windows[4]);
+    }
+
+    public void Restart()
+    {
+        Start();
     }
 
     IEnumerator CallItemUpdate()

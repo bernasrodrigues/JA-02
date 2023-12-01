@@ -50,9 +50,10 @@ public class GameSystem : MonoBehaviour
 
     public void NextLevel(){
         level++;
-        systems[1].GetComponent<UISys>().CloseAll();
+        systems[0].GetComponent<UISys>().CloseAll();
         systems[3].GetComponent<MapSys>().NextLevel(level);
         systems[4].GetComponent<EnemySys>().NextLevel(level);
+        Player.instance.transform.position = new Vector3(0,1,0);
     }
 
     public void Restart(){

@@ -86,6 +86,7 @@ public class MapGenerator : MonoBehaviour
         Tuple<int,int>[] chipAndChipKeySpots = RNGesus.instance.GetRandomSubset(spots, 2);
         MapSys.instance.SetChipSpot(chipAndChipKeySpots[0]);
         MapSys.instance.SetChipKeySpot(chipAndChipKeySpots[1]);
+        Debug.Log(chipAndChipKeySpots[0]);
 
         foreach(Tuple<int,int> spot in spots){
             InstantiateInteriorTileAt(spot.Item1, spot.Item2);

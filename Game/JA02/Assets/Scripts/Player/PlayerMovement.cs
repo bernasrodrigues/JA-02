@@ -69,7 +69,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Hide the cursor
-        Cursor.visible = false;
     }
 
 
