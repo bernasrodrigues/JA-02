@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 5576122284164678516}
   - component: {fileID: 9116975991004916248}
   - component: {fileID: 3410012716727744493}
+  - component: {fileID: 3178716361518082620}
   m_Layer: 0
   m_Name: Enemyi3
   m_TagString: Enemy
@@ -111,6 +112,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!135 &3178716361518082620
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575252415241873872}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.25
+  m_Center: {x: 0, y: 0, z: 0.14996576}
 --- !u!1 &7079053471455683266
 GameObject:
   m_ObjectHideFlags: 0
