@@ -12,6 +12,7 @@ public class Enemy : Character
     //public variables
     public GameObject playerTarget;     // FOR TESTING PURPOUSES IMPLEMENTATION LATER WILL BE DIFERENT
     public NavMeshAgent navMeshAgent;
+    public Rarity rarity = Rarity.Common;
 
 
     protected virtual void Awake()
@@ -53,5 +54,11 @@ public class Enemy : Character
 
     }
 
+    public enum Rarity
+    {
+        Common,
+        Rare,
+        Legendary,
+    }
 
 }

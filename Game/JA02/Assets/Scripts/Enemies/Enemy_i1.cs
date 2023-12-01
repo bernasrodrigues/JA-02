@@ -8,6 +8,7 @@ public class Enemy_i1 : Enemy
     public float damage;
     public float idleTime=1f;
     public float startingIdleTime=1f;
+    public float spawnTimer = 10f;
 
     override protected void Start() {
         base.Start();
@@ -49,5 +50,4 @@ public class Enemy_i1 : Enemy
             stateMachine.ChangeState(idleState);
         }
     }
-
 }
