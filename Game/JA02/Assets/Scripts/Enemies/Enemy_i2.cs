@@ -1,3 +1,5 @@
+using System.Numerics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,6 +12,11 @@ public class Enemy_i2 : Enemy
     public Weapon enemyWeapon;
     public float shootingInterval=1f;
 
+    override protected void Start() {
+        base.Start();
+        //no need to start chase state as in update it already changes its state
+    }
+
     protected override void Awake()
     {
         base.Awake();
@@ -21,9 +28,12 @@ public class Enemy_i2 : Enemy
     {
         base.Update();
 
-        transform.LookAt(Player.instance.transform);
+        var targetPosition = Player.instance.GetPosition();
+        targetPosition.y = transform.position.y;
 
-        if(Vector3.Distance(transform.position, Player.instance.GetPosition()) < attackRange){
+        transform.LookAt(targetPosition);
+
+        if(UnityEngine.Vector3.Distance(transform.position, Player.instance.GetPosition()) < attackRange){
             stateMachine.ChangeState(shootingState);
         }
         else if(stateMachine.currentEnemyState != chaseState){

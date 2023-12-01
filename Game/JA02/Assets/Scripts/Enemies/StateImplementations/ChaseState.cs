@@ -31,7 +31,7 @@ public class ChaseState : EnemyState
     {
         base.UpdateState();
 
-        enemy.navMeshAgent.destination = PlayerMovement.Instance.transform.position;
+        enemy.navMeshAgent.destination = Player.instance.GetPosition();
     }
 
     public override void FixedUpdateState()

@@ -28,8 +28,6 @@ public class IdleState : EnemyState
     public override void UpdateState()
     {
         base.UpdateState();
-
-        enemy.navMeshAgent.destination = enemy.playerTarget.transform.position;
     }
 
     public override void FixedUpdateState()
