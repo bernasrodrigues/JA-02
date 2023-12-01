@@ -40,6 +40,14 @@ public class EnemySys : Sys
         //throw new System.NotImplementedException();
     }
 
+    public void Freeze(){
+
+    }
+
+    public void Unfreeze(){
+        
+    }
+
     public void StartSpawners(){
 
     }

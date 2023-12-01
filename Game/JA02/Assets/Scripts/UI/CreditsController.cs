@@ -19,6 +19,7 @@ public class CreditsController : MonoBehaviour
     }
 
     public void Close(){
-        UISys.instance.OpenWindow(mainMenu);
+        UISys.instance.ExitSound();
+        UISys.instance.OpenWindow(mainMenu);  
     }
 }

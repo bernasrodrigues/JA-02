@@ -22,10 +22,13 @@ public class SettingsMenuController : MonoBehaviour
     }
 
     public void Close(){
+        UISys.instance.ExitSound();
         if(!GameSystem.instance.InGame){
             UISys.instance.OpenWindow(mainMenu);
         }
         else{
+            EnemySys.instance.Unfreeze();
+            PlayerSys.instance.Unfreeze();
             UISys.instance.CloseAll();
         }
         

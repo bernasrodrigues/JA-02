@@ -19,6 +19,9 @@ public class CharacterInfoController : MonoBehaviour
     }
 
     public void OpenSettings(){
+        UISys.instance.ClickSound();
+        EnemySys.instance.Freeze();
+        PlayerSys.instance.Freeze();
         UISys.instance.OpenWindow(settingsScreen);
     }
 }
