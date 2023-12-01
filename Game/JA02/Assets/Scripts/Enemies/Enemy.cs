@@ -20,6 +20,8 @@ public class Enemy : Character
 
         idleState = new IdleState(this , stateMachine);
         chaseState = new ChaseState(this , stateMachine);
+
+        playerTarget = Player.instance.gameObject;
     }
 
     // Start is called before the first frame update
