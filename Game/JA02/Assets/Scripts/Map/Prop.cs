@@ -19,7 +19,7 @@ public class Prop : MonoBehaviour
 
     public void UpdateProp() {
         if (Data.gameState == Data.GameState.MainMenu) {
-            UpdateLights(200);
+            UpdateLights(250);
         } else {
             UpdateLights(80);
         }
