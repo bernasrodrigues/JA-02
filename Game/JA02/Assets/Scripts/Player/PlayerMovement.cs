@@ -103,7 +103,11 @@ public class PlayerMovement : MonoBehaviour
         
     // y: 10 -> LOD Bias: 2
     // y: 200 -> LOD Bias: 5
-        QualitySettings.lodBias = CalculateLODBias(playerCamera.transform.position.y);
+        if (Data.gameState == Data.GameState.MainMenu) {
+            QualitySettings.lodBias = CalculateLODBias(playerCamera.transform.position.y * 3);
+        } else {
+            QualitySettings.lodBias = CalculateLODBias(playerCamera.transform.position.y);
+        }
     }
 
 
