@@ -19,10 +19,12 @@ public class WinScreenController : MonoBehaviour
     }
 
     public void GoToMainMenu(){
+        UISys.instance.ClickSound();
         UISys.instance.OpenWindow(mainMenu);
     }
 
     public void NextLevel(){
+        UISys.instance.ClickSound();
         GameSystem.instance.NextLevel();
     }
 }

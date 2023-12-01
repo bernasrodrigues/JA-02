@@ -14,10 +14,12 @@ public class LossScreenController : MonoBehaviour
 
     // Update is called once per frame
     public void GoToMainMenu(){
+        UISys.instance.ClickSound();
         UISys.instance.OpenWindow(mainMenu);
     }
 
     public void Restart(){
+        UISys.instance.ClickSound();
         GameSystem.instance.Restart();
     }
 }

@@ -19,6 +19,7 @@ public class EndCreditsController : MonoBehaviour
     }
 
     public void GoToMainMenu(){
+        UISys.instance.ClickSound();
         UISys.instance.OpenWindow(mainMenu);
     }
 }

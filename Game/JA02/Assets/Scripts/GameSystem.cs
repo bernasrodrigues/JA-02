@@ -17,6 +17,7 @@ public class GameSystem : MonoBehaviour
 
     public bool InGame { get => inGame; set => this.inGame = value; }
 
+
     // Start is called before the first frame update
     void Start()
     {
