@@ -153,6 +153,7 @@ MonoBehaviour:
   attackRange: 10
   enemyWeapon: {fileID: 7996823560029571643}
   shootingInterval: 1
+  spawnTimer: 15
 --- !u!195 &2247230750068593292
 NavMeshAgent:
   m_ObjectHideFlags: 0
