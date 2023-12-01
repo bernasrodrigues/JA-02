@@ -12182,7 +12182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseMaxHP: 100
-  baseSpeed: 10
+  baseSpeed: 7
   speed: 0
   maxHP: 0
   hp: 0
