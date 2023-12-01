@@ -55,6 +55,8 @@ MonoBehaviour:
   playerTarget: {fileID: 2274458241381397470, guid: f5f5f6d85a141b641bef7db5e8651600,
     type: 3}
   navMeshAgent: {fileID: 4721609331932956114}
+  rarity: 0
+  spawnTimer: 15
   damage: 5
   idleTime: 1
   startingIdleTime: 1

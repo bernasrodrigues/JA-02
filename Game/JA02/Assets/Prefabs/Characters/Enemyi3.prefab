@@ -88,10 +88,10 @@ MonoBehaviour:
     type: 3}
   navMeshAgent: {fileID: 3410012716727744493}
   rarity: 1
+  spawnTimer: 30
   attackRange: 15
   enemyWeapon: {fileID: 2338631884728418608}
   shootingInterval: 2
-  spawnTimer: 20
 --- !u!195 &3410012716727744493
 NavMeshAgent:
   m_ObjectHideFlags: 0
