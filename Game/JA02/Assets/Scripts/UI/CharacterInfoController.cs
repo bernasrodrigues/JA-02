@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class CharacterInfoController : MonoBehaviour
 {
     [SerializeField]
     private GameObject settingsScreen;
+    [SerializeField]
+    private Image healthFill;
+    [SerializeField]
+    private TextMeshProUGUI ammoDisplay;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +29,14 @@ public class CharacterInfoController : MonoBehaviour
         EnemySys.instance.Freeze();
         PlayerSys.instance.Freeze();
         UISys.instance.OpenWindow(settingsScreen);
+    }
+
+    public void UpdateHealth(int healthPercent){
+        float rightValue = 880 - (healthPercent*3);
+        healthFill.rectTransform.offsetMax = new Vector2(rightValue, healthFill.rectTransform.offsetMax.y);
+    }
+
+    public void UpdateBullets(int totalBullets, int currentBullets){
+        ammoDisplay.text = currentBullets.ToString() + " / " + totalBullets.ToString();
     }
 }

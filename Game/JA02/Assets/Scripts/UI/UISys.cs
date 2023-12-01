@@ -77,4 +77,12 @@ public class UISys : Sys
     public void ExitSound(){
         AudioSys.instance.Play(exitAudio, 0.2f);
     }
+
+    public void UpdateHealth(int healthPercent){
+        characterInfo.UpdateHealth(healthPercent);
+    }
+
+    public void UpdateBullets(int totalBullets, int currentBullets){
+        characterInfo.UpdateBullets(totalBullets, currentBullets);
+    }
 }
