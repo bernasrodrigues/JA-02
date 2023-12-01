@@ -3592,6 +3592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   can_pause: 0
+  runOnlyInGame: 0
   windows:
   - {fileID: 1644301300}
   - {fileID: 1185589851}
@@ -3601,7 +3602,10 @@ MonoBehaviour:
   - {fileID: 1427007603}
   characterInfo: {fileID: 1993569463}
   startingScene: {fileID: 0}
-  clickAudios: []
+  clickAudios:
+  - {fileID: 8300000, guid: 1cc0836530e19984ea3b363048f0fd90, type: 3}
+  - {fileID: 8300000, guid: 7017c90d45e631940a95d444ca6f488a, type: 3}
+  - {fileID: 8300000, guid: 2d47a65882d082f43a35b7fddf470978, type: 3}
   exitAudio: {fileID: 0}
 --- !u!1 &445821469
 GameObject:
@@ -3649,6 +3653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   can_pause: 0
+  runOnlyInGame: 0
   windows:
   - {fileID: 1577930249}
   - {fileID: 1366981556}
@@ -8490,6 +8495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   can_pause: 0
+  runOnlyInGame: 0
   mapGenerator: {fileID: 1670721535}
   mapState: {fileID: 91462942}
   structureBuilder: {fileID: 2134948396}
@@ -9361,6 +9367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   can_pause: 0
+  runOnlyInGame: 1
 --- !u!1 &996848127
 GameObject:
   m_ObjectHideFlags: 0
@@ -12517,6 +12524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   can_pause: 0
+  runOnlyInGame: 1
   camera: {fileID: 330585543}
 --- !u!1 &1414569638
 GameObject:
@@ -15703,6 +15711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   can_pause: 0
+  runOnlyInGame: 0
   audioManager: {fileID: 1022883501}
 --- !u!1 &1818018301
 GameObject:
@@ -17404,6 +17413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   can_pause: 0
+  runOnlyInGame: 1
   difficultyLevel: 0
 --- !u!1 &2031984105
 GameObject:
