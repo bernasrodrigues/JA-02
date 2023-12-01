@@ -23,6 +23,7 @@ public class SettingsMenuController : MonoBehaviour
 
     public void Close(){
         UISys.instance.ExitSound();
+        Time.timeScale = 1;
         if(!GameSystem.instance.InGame){
             UISys.instance.OpenWindow(mainMenu);
         }

@@ -29,6 +29,7 @@ public class CharacterInfoController : MonoBehaviour
         EnemySys.instance.Freeze();
         PlayerSys.instance.Freeze();
         UISys.instance.OpenWindow(settingsScreen);
+        Time.timeScale = 0;
     }
 
     public void UpdateHealth(int healthPercent){
