@@ -15,11 +15,13 @@ public class Prop : MonoBehaviour
         SetLights(false);
     }
 
+
+
     public void UpdateProp() {
         Vector3 posPlayer = PlayerMovement.Instance.transform.position;
-        int squaredDistance = (int)Vector3.Distance(posPlayer, transform.position);
+        int dist = (int)Vector3.Distance(posPlayer, transform.position);
         // print(squaredDistance);
-        if (squaredDistance >= 80) {
+        if (dist >= 80 + (PlayerMovement.Instance.playerCamera.transform.position.y)) {
             if (on) {
                 SetLights(false);
             }

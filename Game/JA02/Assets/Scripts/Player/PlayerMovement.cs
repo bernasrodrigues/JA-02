@@ -78,14 +78,34 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        UpdateRenderDistance();
+
         if (equipedWeapon != null)
             if (equipedWeapon.gameObject.activeSelf)  // don't check inputs while the weapon is inactive (when switching weapons)
                 equipedWeapon.CheckInput();    // handle equiped weapon
     }
 
 
+    private float CalculateLODBias(float y) {
+        float y1 = 10f;
+        float lodBias1 = 2f;
+        float y2 = 200f;
+        float lodBias2 = 5f;
 
+        float m = (lodBias2 - lodBias1) / (y2 - y1);
+        float b = lodBias1 - m * y1;
 
+        float lodBias = m * y + b;
+        return lodBias;
+    }
+
+    private void UpdateRenderDistance() {
+        
+    // y: 10 -> LOD Bias: 2
+    // y: 200 -> LOD Bias: 5
+        QualitySettings.lodBias = CalculateLODBias(playerCamera.transform.position.y);
+        print(QualitySettings.lodBias);
+    }
 
 
 
