@@ -9,16 +9,15 @@ public class Player : Character
 
     public List<ItemList> items = new List<ItemList>();
 
+    private PlayerMovement playerMovement;
+
     // Start is called before the first frame update
     protected override void Start()
     {
         instance = this;
         
         base.Start();
-        //For testing only - remove it
-        HealingItem item = new HealingItem();
-        AddItem(item);
-        //
+        playerMovement = GetComponent<PlayerMovement>();
         StartCoroutine(CallItemUpdate());
     }
 
@@ -65,6 +64,7 @@ public class Player : Character
             maxHP = baseMaxHP;
 
             speed = i.item.OnRecalculateStat(this, Item.CharacterStat.Speed, speed, i.stacks);
+            playerMovement.speed = speed;
             maxHP = i.item.OnRecalculateStat(this, Item.CharacterStat.MaxHp, maxHP, i.stacks);
         }
         // apply status effects here
