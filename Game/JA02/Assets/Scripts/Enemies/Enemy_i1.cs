@@ -8,6 +8,11 @@ public class Enemy_i1 : Enemy
     public float damage;
     public float idleTime=1f;
     public float startingIdleTime=1f;
+
+    override protected void Start() {
+        base.Start();
+        stateMachine.Initialize(chaseState);
+    }
     protected override void AnimationTriggerEvent(AnimationTriggerType triggerType)
     {
         // IF ANIMATION TRIGGERS ARE USED...

@@ -26,7 +26,7 @@ public class Enemy : Character
     protected override void Start()
     {
         base.Start();
-        stateMachine.Initialize(chaseState);
+        stateMachine.Initialize(idleState);
     }
     
     // Update is called once per frame
