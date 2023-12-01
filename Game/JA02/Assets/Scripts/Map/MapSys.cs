@@ -25,6 +25,8 @@ public class MapSys : Sys
 
     protected override void Restart()
     {
+        Clear();
+        InitializeMap();
         //throw new System.NotImplementedException();
     }
 
@@ -69,5 +71,17 @@ public class MapSys : Sys
 
     public Tuple<int,int>[] GetAvaliableMapPositions(){
         return mapState.GetAvaliableMapPositions();
+    }
+
+    public void Clear(){
+        mapGenerator.Clear();
+        structureBuilder.Clear();
+        mapState.Clear();
+    }
+
+    public void NextLevel(int level){
+        Clear();
+        mapState.CurrentLevel = level;
+        InitializeMap();
     }
 }

@@ -48,4 +48,12 @@ public class MapState : MonoBehaviour
         }
         return avaliablePositions;
     }
+
+    public void Clear(){
+        mapPositions = null;
+        scenarioPositions = null;
+        chipTile = null;
+        chipKeyTile = null;
+        currentLevel = 1;
+    }
 }

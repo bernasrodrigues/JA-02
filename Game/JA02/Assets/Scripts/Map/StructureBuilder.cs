@@ -70,4 +70,12 @@ public class StructureBuilder : MonoBehaviour
         newGO = Instantiate(building, transform);
         newGO.transform.position = new Vector3(position.Item1 * tileSize, 0, position.Item2 * tileSize);
     }
+
+    public void Clear(){
+        foreach (Transform child in transform)
+        {
+            // Destroy the immediate child GameObject
+            Destroy(child.gameObject);
+        }
+    }
 }

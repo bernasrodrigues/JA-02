@@ -7,6 +7,9 @@ public class EnemySys : Sys
 
     public static EnemySys instance;
     public static EnemySys Get() { return instance; }
+
+    [SerializeField]
+    private int difficultyLevel;
     
     protected override void OnAwake()
     {
@@ -16,6 +19,9 @@ public class EnemySys : Sys
 
     protected override void Restart()
     {
+        difficultyLevel = 1;
+        Clear();
+        StartSpawners();
         //throw new System.NotImplementedException();
     }
 
@@ -32,6 +38,24 @@ public class EnemySys : Sys
     protected override void OnUpdate()
     {
         //throw new System.NotImplementedException();
+    }
+
+    public void StartSpawners(){
+
+    }
+
+    public void Clear(){
+        foreach (Transform child in transform)
+        {
+            // Destroy the immediate child GameObject
+            Destroy(child.gameObject);
+        }
+    }
+
+    public void NextLevel(int level){
+        difficultyLevel = level;
+        Clear();
+        StartSpawners();
     }
 }
 

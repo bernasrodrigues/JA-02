@@ -219,4 +219,13 @@ public class MapGenerator : MonoBehaviour
         newGO = Instantiate(exteriorTileObj, transform);
         newGO.transform.position = new Vector3(xCoordinate*tileSize, 0, yCoordinate*tileSize);
     }
+
+    public void Clear(){
+        mapPositions = null;
+        foreach (Transform child in transform)
+        {
+            // Destroy the immediate child GameObject
+            Destroy(child.gameObject);
+        }
+    }
 }

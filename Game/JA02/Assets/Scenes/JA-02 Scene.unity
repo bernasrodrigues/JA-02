@@ -12224,6 +12224,7 @@ MonoBehaviour:
   - {fileID: 2007675510}
   - {fileID: 1368628649}
   inGame: 0
+  level: 1
 --- !u!1 &1463495543
 GameObject:
   m_ObjectHideFlags: 0

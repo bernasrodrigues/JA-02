@@ -13,6 +13,8 @@ public class GameSystem : MonoBehaviour
 
     public bool inGame;
 
+    public int level;
+
     public bool InGame { get => inGame; set => this.inGame = value; }
 
     // Start is called before the first frame update
@@ -46,10 +48,18 @@ public class GameSystem : MonoBehaviour
     }
 
     public void NextLevel(){
-
+        level++;
+        systems[1].GetComponent<UISys>().CloseAll();
+        systems[3].GetComponent<MapSys>().NextLevel(level);
+        systems[4].GetComponent<EnemySys>().NextLevel(level);
     }
 
     public void Restart(){
+        level = 1;
+        foreach(Sys system in systems){
+            //print("a");
+            system.RestartSys();
+        }
         
     }
 }
