@@ -18,10 +18,17 @@ public class Prop : MonoBehaviour
 
 
     public void UpdateProp() {
-        Vector3 posPlayer = PlayerMovement.Instance.transform.position;
-        int dist = (int)Vector3.Distance(posPlayer, transform.position);
-        // print(squaredDistance);
-        if (dist >= 80 + (PlayerMovement.Instance.playerCamera.transform.position.y)) {
+        if (Data.gameState == Data.GameState.MainMenu) {
+            UpdateLights(200);
+        } else {
+            UpdateLights(80);
+        }
+    }
+
+    void UpdateLights(int range) {
+        Vector3 posCamera = PlayerMovement.Instance.playerCamera.transform.position;
+        int dist = (int)Vector3.Distance(posCamera, transform.position);
+        if (dist >= range + (PlayerMovement.Instance.playerCamera.transform.position.y)) {
             if (on) {
                 SetLights(false);
             }
