@@ -12325,6 +12325,7 @@ MonoBehaviour:
   maxHP: 0
   hp: 0
   damage: 0
+  hasKey: 0
   items: []
 --- !u!1 &1360247100
 GameObject:
@@ -18224,7 +18225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4528db27d764cac4f898bdfe5e5aff22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chipBuilding: {fileID: 6491783157046173744, guid: 0ab80afb6e3cb2f408e45c70c889fdeb,
+  chipBuilding: {fileID: 2019655916012100536, guid: c40b088a53b07684a8e1ea078cac3b33,
     type: 3}
   chipKeyBuilding: {fileID: 971912466232848252, guid: f7f4fb019d9d07745acd6e6500d9d688,
     type: 3}
