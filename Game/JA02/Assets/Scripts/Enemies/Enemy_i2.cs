@@ -12,7 +12,6 @@ public class Enemy_i2 : Enemy
     public Weapon enemyWeapon;
     public float shootingInterval=1f;
 
-    public float spawnTimer = 10f;
 
     override protected void Start() {
         base.Start();

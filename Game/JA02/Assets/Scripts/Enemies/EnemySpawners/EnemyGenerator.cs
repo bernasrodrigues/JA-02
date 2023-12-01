@@ -7,35 +7,52 @@ public class EnemyGenerator : MonoBehaviour
     // Start is called before the first frame update
     private float spawnTimer;
     public float spawnSpeed = 1f;
-    public static List<Enemy> enemiesToSpawn;
+    public List<GameObject> enemiesToSpawn;
 
-    private Dictionary<Enemy.Rarity, List<Enemy>> enemiesByRarity = new Dictionary<Enemy.Rarity, List<Enemy>>();
+    private Dictionary<Enemy.Rarity, List<GameObject>> enemiesByRarity = new Dictionary<Enemy.Rarity, List<GameObject>>();
 
     public Dictionary<Enemy.Rarity, float> rarityChances = new Dictionary<Enemy.Rarity, float>()
     {
         { Enemy.Rarity.Common, 50 },
-        { Enemy.Rarity.Rare, 30 },
-        { Enemy.Rarity.Legendary, 10 },
+        { Enemy.Rarity.Rare, 35 },
+        { Enemy.Rarity.Legendary, 15 },
     };
 
+    private void Start()
+    {
+        InitDicts();
+    }
+
     public void Update() {
-        if(spawnTimer>0){
-            spawnTimer-=Time.deltaTime;
+        if (spawnTimer > 0)
+        {
+            spawnTimer -= Time.deltaTime;
+        }
+        else 
+        {
+            Spawn();
         }
     }
 
+    public void Spawn()
+    {
+        GameObject gob = Instantiate(GetRandomEnemiesUsingRarity());
+        spawnTimer = gob.GetComponent<Enemy>().spawnTimer / spawnSpeed;
+    }
+
     public void InitDicts() {
-        foreach (Enemy enemy in enemiesToSpawn) {
+        foreach (GameObject enemyGoB in enemiesToSpawn) {
+            Enemy enemy = enemyGoB.GetComponent<Enemy>();
             if (!enemiesByRarity.ContainsKey(enemy.rarity))
             {
-                enemiesByRarity.Add(enemy.rarity, new List<Enemy>());
+                enemiesByRarity.Add(enemy.rarity, new List<GameObject>());
             }
 
-            enemiesByRarity[enemy.rarity].Add(enemy);
+            enemiesByRarity[enemy.rarity].Add(enemyGoB);
         }  
     }
 
-    public Enemy GetRandomEnemiesUsingRarity() 
+    public GameObject GetRandomEnemiesUsingRarity() 
     {
         Enemy.Rarity rarity = Enemy.Rarity.Common;
         float rnd = Random.Range(0.0f, 1.0f);
@@ -53,7 +70,7 @@ public class EnemyGenerator : MonoBehaviour
     }
 
 
-    public Enemy GetRandomEnemyByRarity(Enemy.Rarity rarity)
+    public GameObject GetRandomEnemyByRarity(Enemy.Rarity rarity)
     {
         return enemiesByRarity[rarity][Random.Range(0, enemiesByRarity[rarity].Count)];
     }

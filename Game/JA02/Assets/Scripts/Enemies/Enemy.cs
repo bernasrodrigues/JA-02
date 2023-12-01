@@ -14,6 +14,7 @@ public class Enemy : Character
     public NavMeshAgent navMeshAgent;
     public Rarity rarity = Rarity.Common;
 
+    public float spawnTimer = 10f;
 
     protected virtual void Awake()
     {
