@@ -3604,7 +3604,7 @@ MonoBehaviour:
   - {fileID: 929390291}
   - {fileID: 1427007603}
   characterInfo: {fileID: 1993569463}
-  startingScene: {fileID: 0}
+  startingScene: {fileID: 1166795599}
   clickAudios:
   - {fileID: 8300000, guid: 1cc0836530e19984ea3b363048f0fd90, type: 3}
   - {fileID: 8300000, guid: 7017c90d45e631940a95d444ca6f488a, type: 3}
@@ -9417,7 +9417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   can_pause: 0
-  runOnlyInGame: 1
+  runOnlyInGame: 0
 --- !u!1 &996848127
 GameObject:
   m_ObjectHideFlags: 0
@@ -12507,7 +12507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   can_pause: 0
-  runOnlyInGame: 1
+  runOnlyInGame: 0
   camera: {fileID: 330585543}
 --- !u!1 &1414569638
 GameObject:
@@ -16996,7 +16996,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsScreen: {fileID: 1185589851}
   healthFill: {fileID: 996848129}
-  ammoDisplay: {fileID: 0}
+  ammoDisplay: {fileID: 1135217957}
 --- !u!222 &1993569464
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17186,7 +17186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   can_pause: 0
-  runOnlyInGame: 1
+  runOnlyInGame: 0
   difficultyLevel: 0
 --- !u!1 &2031984105
 GameObject:
