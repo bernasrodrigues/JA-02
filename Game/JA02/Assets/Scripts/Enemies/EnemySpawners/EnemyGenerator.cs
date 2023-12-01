@@ -6,8 +6,9 @@ public class EnemyGenerator : MonoBehaviour
 {
     // Start is called before the first frame update
     private float spawnTimer;
-    public float spawnSpeed = 1f;
+    public static float spawnSpeed = 1f;
     public List<GameObject> enemiesToSpawn;
+    public bool isActivated = false;
 
     private Dictionary<Enemy.Rarity, List<GameObject>> enemiesByRarity = new Dictionary<Enemy.Rarity, List<GameObject>>();
 
@@ -24,6 +25,8 @@ public class EnemyGenerator : MonoBehaviour
     }
 
     public void Update() {
+        if (!isActivated) { return; }
+        
         if (spawnTimer > 0)
         {
             spawnTimer -= Time.deltaTime;
@@ -73,5 +76,20 @@ public class EnemyGenerator : MonoBehaviour
     public GameObject GetRandomEnemyByRarity(Enemy.Rarity rarity)
     {
         return enemiesByRarity[rarity][Random.Range(0, enemiesByRarity[rarity].Count)];
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "PlayerSpawner")
+        {
+            isActivated = true;   
+        }
+    }
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "PlayerSpawner")
+        {
+            isActivated = false;
+        }
     }
 }

@@ -23,6 +23,8 @@ public class CameraController : MonoBehaviour
     private float minCamHeight;
     [SerializeField]
     private float camZoomFactor;
+    [SerializeField]
+    private GameObject playerSpawnerArea;
 
     private float mouseScrollDeltaAvg;
 
@@ -62,6 +64,8 @@ public class CameraController : MonoBehaviour
         // sim, dava para fazer os dois no mesmo mas não me apetece :P
         cameraHeight = Mathf.Max(minCamHeight, cameraHeight);
         cameraHeight = Mathf.Min(maxCamHeight, cameraHeight);
+        float scale = cameraHeight * 3.5f;
+        playerSpawnerArea.transform.localScale = new Vector3(scale, scale, scale);
     }
 
     public void GoToMainMenuView(){
