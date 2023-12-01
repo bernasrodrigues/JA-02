@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 [System.Serializable]
@@ -47,12 +48,15 @@ public abstract class Item
     }
     public static int itemTypeLength = Enum.GetNames(typeof(Item.ItemType)).Length;
 
+    [Flags]
     public enum CharacterStat 
     {
-        MaxHp,
-        Speed,
-        Damage,
-        AttackSpeed,
+        None = 0,
+        MaxHp = 1 << 0,
+        Speed = 1 << 1,
+        Damage = 1 << 2,
+        AttackSpeed = 1 << 3,
+        Scale = 1 << 4,
     }
 }
 
@@ -145,7 +149,7 @@ public class SpeedItem : Item
 
     public override float OnRecalculateStat(Character player, CharacterStat statModified, float stat, int stacks)
     {
-        if (statModified != CharacterStat.Speed) { return stat; }
+        if (statModified.HasFlag(CharacterStat.Speed)) { return stat; }
 
         return stat + 0.20f * stacks * player.baseSpeed;
     }
@@ -167,7 +171,7 @@ public class MaxHpItem : Item
 
     public override float OnRecalculateStat(Character player, CharacterStat statModified, float stat, int stacks)
     {
-        if (statModified != CharacterStat.MaxHp) { return stat; }
+        if (statModified.HasFlag(CharacterStat.MaxHp)) { return stat; }
 
         return stat + 0.08f * stacks * player.baseMaxHP;
     }
@@ -215,6 +219,64 @@ public class ThunderItem : Item
             }
         }
         return character;
+    }
+}
+
+// Item that gives 10% scale and 6% max hp per stack
+public class ScaleUpItem : Item
+{
+    public ScaleUpItem()
+    {
+        rarity = Rarity.Rare;
+        type = ItemType.Utility;
+    }
+
+    public override string GetName()
+    {
+        return "Scale Up Item";
+    }
+
+    public override float OnRecalculateStat(Character player, CharacterStat statModified, float stat, int stacks)
+    {
+        if (statModified.HasFlag(CharacterStat.Scale)) 
+        {
+            return stat + 0.1f * stacks;
+        }
+        if (statModified.HasFlag(CharacterStat.MaxHp))
+        {
+            return stat + 0.06f * stacks * player.baseMaxHP;
+        }
+
+        return stat;
+    }
+}
+
+// Item that gives -10% scale and 6% max hp per stack
+public class ScaleDownItem : Item
+{
+    public ScaleDownItem()
+    {
+        rarity = Rarity.Rare;
+        type = ItemType.Utility;
+    }
+
+    public override string GetName()
+    {
+        return "Scale Up Item";
+    }
+
+    public override float OnRecalculateStat(Character player, CharacterStat statModified, float stat, int stacks)
+    {
+        if (statModified.HasFlag(CharacterStat.Scale))
+        {
+            return stat - 0.1f * Mathf.Log(stacks,2f);
+        }
+        if (statModified.HasFlag(CharacterStat.Speed))
+        {
+            return stat + 0.10f * stacks * player.baseSpeed;
+        }
+
+        return stat;
     }
 }
 

@@ -17,6 +17,7 @@ public class Player : Character
         instance = this;
         
         base.Start();
+
         playerMovement = GetComponent<PlayerMovement>();
         StartCoroutine(CallItemUpdate());
     }
@@ -58,15 +59,18 @@ public class Player : Character
 
     public void RecalculateStats() 
     {
+        speed = baseSpeed;
+        maxHP = baseMaxHP;
+        float scale = 1f;
+
         foreach (ItemList i in items)
         {
-            speed = baseSpeed;
-            maxHP = baseMaxHP;
-
             speed = i.item.OnRecalculateStat(this, Item.CharacterStat.Speed, speed, i.stacks);
-            playerMovement.speed = speed;
             maxHP = i.item.OnRecalculateStat(this, Item.CharacterStat.MaxHp, maxHP, i.stacks);
+            scale = i.item.OnRecalculateStat(this, Item.CharacterStat.Scale, scale, i.stacks);
         }
+        playerMovement.speed = speed;
+        transform.localScale = new Vector3(scale,scale, scale);
         // apply status effects here
     }
 }
